@@ -1,0 +1,43 @@
+﻿@using EmployeDbContext.Models;
+@model EmployeDbContext.Models.Employee;
+
+@{
+    ViewData["Title"] = "Update Exisisting Employee";
+}
+
+<h2>Update Exisisting Product</h2>
+@{
+    Employee emp = (Employee)ViewData["Emp"];
+}
+<form method="post">
+    <div>
+        <div class="form-group">
+            <label class="control-label">Id</label>
+            <input asp-for="Id" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label">First Name</label>
+            <input asp-for="FirstName" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Last Name</label>
+            <input asp-for="LastName" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Email</label>
+            <input asp-for="Email" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Contact</label>
+            <input asp-for="Contact" class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+</form>
+
+<div>
+    @Html.ActionLink("Back To the List","Index")
+</div>

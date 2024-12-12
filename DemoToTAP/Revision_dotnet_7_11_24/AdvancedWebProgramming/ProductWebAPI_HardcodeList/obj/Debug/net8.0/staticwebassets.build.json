@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "qqL/VGivFS9YcJngDWs1zeu4uaYDAgkTB8au+opbzag=",
+  "Source": "ProductWebAPI_HardcodeList",
+  "BasePath": "_content/ProductWebAPI_HardcodeList",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

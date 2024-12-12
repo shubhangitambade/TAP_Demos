@@ -1,0 +1,22 @@
+﻿@using ECommerce_MVC_Application.Models;
+
+<div>
+
+    <h1>List of Products</h1>
+    <a href="/product/Add">Add New Product</a>
+
+
+    @{
+        List<Product> products = (List<Product>)ViewData["prds"];
+        foreach(Product prd in products)
+        {
+            <p>@prd.Id . @prd.Name | <a href="/product/Get/@prd.Id">Details</a> | <a href="/product/Edit/@prd.Id">Edit</a> | <a href="/product/Remove/@prd.Id">Remove</a> </p>
+        }
+    }
+</div>
+
+<div>
+    <form method="post" action="/Account/Logout">
+        <button type="submit">LogOut</button>
+    </form>
+</div>

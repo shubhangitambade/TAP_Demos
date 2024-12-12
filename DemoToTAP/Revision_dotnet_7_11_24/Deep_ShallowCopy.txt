@@ -1,0 +1,136 @@
+n Java, the concepts of **shallow copy** and **deep copy** refer to how objects are copied, particularly with respect to whether or not the nested or referenced objects are also copied. Here's a breakdown of each:
+ 
+### 1. **Shallow Copy**
+ 
+A **shallow copy** creates a new object, but rather than copying the actual objects that the original object references, it only copies the references to those objects. This means that both the original and the copied object will reference the same objects in memory (i.e., the nested objects or fields).
+ 
+#### Key characteristics:
+- Only the top-level object is copied.
+- For fields that are references to other objects, the shallow copy will copy the references, not the actual objects.
+- Changes to nested objects in the shallow copy will affect the original object and vice versa.
+ 
+#### Example:
+```java
+class Person {
+    String name;
+    Address address;  // nested object
+ 
+    Person(String name, Address address) {
+        this.name = name;
+        this.address = address;
+    }
+}
+ 
+class Address {
+    String city;
+    String state;
+ 
+    Address(String city, String state) {
+        this.city = city;
+        this.state = state;
+    }
+}
+ 
+public class ShallowCopyExample {
+    public static void main(String[] args) {
+        Address address = new Address("New York", "NY");
+        Person original = new Person("John", address);
+ 
+        // Shallow copy of Person
+        Person shallowCopy = original;
+ 
+        // Modifying the address in the shallow copy
+        shallowCopy.address.city = "Los Angeles";
+ 
+        // Both objects now have the same address (since it's a shallow copy)
+        System.out.println("Original Address: " + original.address.city);  // Los Angeles
+        System.out.println("Shallow Copy Address: " + shallowCopy.address.city);  // Los Angeles
+    }
+}
+```
+ 
+**Output:**
+```
+Original Address: Los Angeles
+Shallow Copy Address: Los Angeles
+```
+ 
+In this example, modifying the `address` of `shallowCopy` also affects `original` because both objects reference the same `Address` object.
+ 
+### 2. **Deep Copy**
+ 
+A **deep copy** creates a new object and recursively copies all objects that the original object references, effectively duplicating the entire object graph. In other words, not only the top-level object is copied, but also all nested objects or fields that are themselves objects.
+ 
+#### Key characteristics:
+- The top-level object and all nested objects are recursively copied.
+- The original and the copied objects are completely independent of each other.
+- Changes to nested objects in the deep copy do not affect the original object and vice versa.
+ 
+#### Example:
+```java
+class Person implements Cloneable {
+    String name;
+    Address address;
+ 
+    Person(String name, Address address) {
+        this.name = name;
+        this.address = address;
+    }
+ 
+    // Custom deep copy (clone) method
+    public Person deepCopy() {
+        // Create a new Address object to ensure deep copying
+        Address newAddress = new Address(this.address.city, this.address.state);
+        return new Person(this.name, newAddress);
+    }
+}
+ 
+class Address {
+    String city;
+    String state;
+ 
+    Address(String city, String state) {
+        this.city = city;
+        this.state = state;
+    }
+}
+ 
+public class DeepCopyExample {
+    public static void main(String[] args) {
+        Address address = new Address("New York", "NY");
+        Person original = new Person("John", address);
+ 
+        // Deep copy of Person
+        Person deepCopy = original.deepCopy();
+ 
+        // Modify the deep copy's address
+        deepCopy.address.city = "Los Angeles";
+ 
+        // The original object is unaffected by changes to the deep copy
+        System.out.println("Original Address: " + original.address.city);  // New York
+        System.out.println("Deep Copy Address: " + deepCopy.address.city);  // Los Angeles
+    }
+}
+```
+ 
+**Output:**
+```
+Original Address: New York
+Deep Copy Address: Los Angeles
+```
+ 
+In this case, modifying the `address` of `deepCopy` does not affect the `original` object because the `address` was deeply copied (a new `Address` object was created).
+ 
+### Summary of Differences:
+ 
+| Feature                  | Shallow Copy                                  | Deep Copy                                       |
+|--------------------------|-----------------------------------------------|-------------------------------------------------|
+| Object Copying            | Copies only the top-level object              | Copies the top-level object and all nested objects |
+| Nested Object References  | Copies references to nested objects (no new objects created) | Creates new instances of nested objects          |
+| Independence of Objects   | Not independent; nested objects are shared    | Fully independent; changes in copy do not affect original |
+| Performance               | Faster (because no recursion or object creation for nested objects) | Slower (due to recursion and creating new objects) |
+ 
+### Methods to Implement Copies in Java:
+- **Shallow Copy**: Can be done by using `Object.clone()` or simply copying the references if implementing a custom method.
+- **Deep Copy**: Often requires implementing a custom `clone` method or using serialization/deserialization (e.g., `ObjectOutputStream`/`ObjectInputStream`) to deeply copy objects.
+ 

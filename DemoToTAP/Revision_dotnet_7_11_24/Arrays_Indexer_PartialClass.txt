@@ -1,0 +1,150 @@
+var evenNums = new int[]{ 2, 4, 6, 8, 10}; 
+
+var cities = new string[]{ "Mumbai", "London", "New York" };
+If you are adding array elements at the time of declaration, then size is optional. The compiler will infer its size based on the number of elements inside curly braces, as shown below.
+
+Example: Short Syntax of Array DeclarationCopy
+int[] evenNums = { 2, 4, 6, 8, 10}; 
+
+string[] cities = { "Mumbai", "London", "New York" }
+--------------------------------------------------------
+LINQ Methods
+All the arrays in C# are derived from an abstract base class System.Array.
+
+The Array class implements the IEnumerable interface, so you can LINQ extension methods such as Max(), Min(), Sum(), reverse(), etc. See the list of all extension methods here.
+
+Example: LINQ MethodsCopy
+int[] nums = new int[5]{ 10, 15, 16, 8, 6 };
+
+nums.Max(); // returns 16
+nums.Min(); // returns 6
+nums.Sum(); // returns 55
+nums.Average(); // returns 55
+The System.Array class also includes methods for creating, manipulating, searching, and sorting arrays. See list of all Array methods here.
+
+int[] nums = new int[5]{ 10, 15, 16, 8, 6 };
+
+Array.Sort(nums); // sorts array 
+Array.Reverse(nums); // sorts array in descending order
+Array.ForEach(nums, n => Console.WriteLine(n)); // iterates array
+Array.BinarySearch(nums, 5);// binary search
+
+-------------------------------------------------
+int[,] arr2d = new int[3,2]{ 
+                                {1, 2}, 
+                                {3, 4}, 
+                                {5, 6} 
+                            };
+
+// or 
+int[,] arr2d = { 
+                    {1, 2}, 
+                    {3, 4}, 
+                    {5, 6} 
+                };
+
+
+C# Jagged Arrays: An Array of Array
+A jagged array is an array of array. Jagged arrays store arrays instead of literal values.
+
+A jagged array is initialized with two square brackets [][]. The first bracket specifies the size of an array, and the second bracket specifies the dimensions of the array which is going to be stored.
+
+The following example declares jagged arrays.
+
+Example: Jagged ArraysCopy
+int[][] jArray1 = new int[2][]; // can include two single-dimensional arrays 
+int[][,] jArray2 = new int[3][,]; // can include three two-dimensional arrays
+In the above example, jArray1 can store up to two single-dimensional arrays. jArray2 can store up to three two-dimensional, arrays [,] specifies the two-dimensional array.
+
+Example: Jagged ArrayCopy
+int[][] jArray = new int[2][]; 
+
+jArray[0] = new int[3]{1, 2, 3};
+
+jArray[1] = new int[4]{4, 5, 6, 7 };
+You can also initialize a jagged array upon declaration like the below.
+
+Example: Jagged ArrayCopy
+int[][] jArray = new int[2][]{
+                new int[3]{1, 2, 3},
+
+                new int[4]{4, 5, 6, 7}
+            };
+
+jArray[0][0]; //returns 1
+jArray[0][1]; //returns 2
+jArray[0][2]; //returns 3
+jArray[1][0]; //returns 4
+jArray[1][1]; //returns 5
+jArray[1][2]; //returns 6
+jArray[1][3]; //returns 7
+You can access a jagged array using two for loops, as shown below.
+
+Example: Jagged ArrayCopy
+int[][] jArray = new int[2][]{
+                new int[3]{1, 2, 3},
+
+                new int[4]{4, 5, 6, 7}
+            };
+
+for(int i=0; i<jArray.Length; i++)
+{
+	for(int j=0; j < (jArray[i]).Length; j++)
+		Console.WriteLine(jArray[i][j]);
+}
+The following jagged array stores two-dimensional arrays where the second bracket [,] indicates the two-dimensional array.
+
+Example: Jagged ArrayCopy
+int[][,] jArray = new int[2][,];
+
+jArray[0] = new int[3, 2] { { 1, 2 }, { 3, 4 }, { 5, 6 } };
+jArray[1] = new int[2, 2] { { 7, 8 }, { 9, 10 } }; 
+
+jArray[0][1, 1]; //returns 4
+                                             
+jArray[1][1, 0]; //returns 9
+                                             
+jArray[1][1, 1]; //returns 10
+If you add one more bracket then it will be array of array of arry.
+
+Example: Jagged ArrayCopy
+int[][][] intJaggedArray = new int[2][][] 
+                            {
+                                new int[2][]  
+                                { 
+                                    new int[3] { 1, 2, 3},
+                                    new int[2] { 4, 5} 
+                                },
+                                new int[1][]
+                                { 
+                                    new int[3] { 7, 8, 9}
+                                }
+                            };
+
+Console.WriteLine(intJaggedArray[0][0][0]); // 1
+
+Console.WriteLine(intJaggedArray[0][1][1]); // 5
+    
+Console.WriteLine(intJaggedArray[1][0][2]); // 9
+In the above example of a jagged array, three brackets [][][] means an array of array of array. So, intJaggedArray will contain two elements, which means two arrays. Now, each of these arrays also contains an array (single-dimension). intJaggedArray[0][0][0] points to the first element of first inner array. intJaggedArray[1][0][2] points to the third element of the second inner array. The following figure illustrates this.
+
+
+---------------------------------------------------------
+
+
+---------------------------------------------------------
+Partial Classes in C#
+
+A partial class is a special feature of C#. 
+It provides a special ability to implement the functionality of a single class into multiple files and all these files are combined into a single class file when the application is compiled.
+ A partial class is created by using a partial keyword. This keyword is also useful to split the functionality of methods, interfaces, or structure into multiple files.
+
+Important points: 
+
+1.When you want to chop the functionality of the class, method, interface, or structure into multiple files, then you should use partial keyword and all the files are mandatory to be available at compile time for creating the final file.
+2.The partial modifier can only present instantly before the keywords like struct, class, and interface.
+3.Every part of the partial class definition should be in the same assembly and namespace, but you can use a different source file name.
+4.Every part of the partial class definition should have the same accessibility as private, protected, etc.
+5.If any part of the partial class is declared as an abstract, sealed, or base, then the whole class is declared of the same type.
+6.The user is also allowed to use nested partial types.
+7.Dissimilar parts may have dissimilar base types, but the final type must inherit all the base types.

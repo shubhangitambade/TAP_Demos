@@ -1,0 +1,7 @@
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Revisedotnet\ConsoleApp_framework\bin\Debug\ConsoleApp_framework.exe.config
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Revisedotnet\ConsoleApp_framework\bin\Debug\ConsoleApp_framework.exe
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Revisedotnet\ConsoleApp_framework\bin\Debug\ConsoleApp_framework.pdb
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Revisedotnet\ConsoleApp_framework\obj\Debug\ConsoleApp_framework.csproj.AssemblyReference.cache
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Revisedotnet\ConsoleApp_framework\obj\Debug\ConsoleApp_framework.csproj.CoreCompileInputs.cache
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Revisedotnet\ConsoleApp_framework\obj\Debug\ConsoleApp_framework.exe
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Revisedotnet\ConsoleApp_framework\obj\Debug\ConsoleApp_framework.pdb

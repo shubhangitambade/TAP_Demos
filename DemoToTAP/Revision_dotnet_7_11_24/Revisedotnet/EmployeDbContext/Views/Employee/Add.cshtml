@@ -1,0 +1,40 @@
+﻿@using EmployeDbContext.Models;
+@model EmployeDbContext.Models.Employee
+@{
+    ViewData["Title"] = "Add New Employee";
+}
+
+
+<h2>Insert New Employee</h2>
+<form method="post">
+    <div>
+        <div class="form-group">
+            <label class="control-label">Id</label>
+            <input asp-for="Id" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label class="control-label">First Name</label>
+            <input asp-for="FirstName" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Last Name</label>
+            <input asp-for="LastName" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Email</label>
+            <input asp-for="Email" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Contact</label>
+            <input asp-for="Contact" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Insert</button>
+    </div>
+</form>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

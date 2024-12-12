@@ -1,0 +1,36 @@
+﻿@using Product_MVC_Project.Models;
+@{
+
+}
+<div>
+    <h1>Products</h1>
+    <a href="/product/Add">Insert New Product</a>
+
+    <hr/>
+     @{
+        List<Product> products = (List<Product>)ViewData["prds"];
+        foreach(Product  prd in products)
+        {
+            <p> @prd.Id . @prd.Name | @prd.Price <a href="/product/GetById/@prd.Id">Details</a> | <a href="/product/Edit/@prd.Id">Update</a> | <a href="/product/Delete/@prd.Id">Remove</a></p>
+        }
+    }
+</div>
+<hr/>
+
+<div>
+    <table>
+        <tr>
+            <th>Id  </th>
+            <th>Name  </th>
+            <th>Price  </th>
+            <th>  </th>
+            <th>  </th>
+            <th>  </th>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+
+        </thead>
+    </table>
+</div>

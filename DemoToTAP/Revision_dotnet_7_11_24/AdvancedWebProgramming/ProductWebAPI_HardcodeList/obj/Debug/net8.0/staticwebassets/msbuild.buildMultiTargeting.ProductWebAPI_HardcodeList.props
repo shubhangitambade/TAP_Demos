@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ProductWebAPI_HardcodeList.props" />
+</Project>

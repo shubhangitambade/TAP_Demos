@@ -1,0 +1,11 @@
+1.Microsoft.EntityFrameworkCore.SQLServer — Enables Entity Framework Core to work with SQL Server databases, providing seamless integration and interaction with the database.
+
+2.Microsoft.VisualStudio.Web.CodeGeneration.Design — Includes design-time components for code generation, aiding in the scaffolding of controllers and views within the ASP.NET Core project.
+
+3.Microsoft.EntityFrameworkCore.Tools — Provides additional tools for Entity Framework Core, facilitating tasks such as migrations and database updates from the command line.
+
+4.Microsoft.EntityFrameworkCore — The core Entity Framework package that allows developers to interact with databases using .NET objects, simplifying data access and manipulation.
+
+5.System.IdentityModel.Tokens.Jwt — Adds support for JSON Web Tokens (JWT), which is essential for implementing secure authentication and authorization in your ASP.NET Core Web API.
+
+6.Microsoft.AspNetCore.Authentication.JwtBearer — Integrates JWT-based authentication into your ASP.NET Core application, allowing secure validation and authentication of users based on JWTs.

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "cL0GKj8nO7eK6Wtrps0vtbCzZFrRGoON+oIQLYJiF98=",
+  "Source": "StudentPortalWebAPI",
+  "BasePath": "_content/StudentPortalWebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

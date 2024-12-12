@@ -1,0 +1,18 @@
+Configuring HTTPS in Visual Studio 2022 enables the Hypertext Transfer Protocol Secure (HTTPS) protocol in an app's Debug tab: 
+What is HTTPS?
+HTTPS is a secure version of HTTP, the primary protocol used to send data between a web browser and a website. HTTPS encrypts data to increase security. 
+Why configure HTTPS?
+HTTPS is important for: 
+Establishing an encrypted link between a web server and a web client 
+Identifying and authenticating the server 
+Ensuring the privacy and integrity of transmitted data 
+Safe administration, critical security, and information trustworthiness
+
+
+How to configure HTTPS in Visual Studio?
+To configure HTTPS in Visual Studio, you can: 
+Create a self-signed certificate 
+Trust the certificate 
+Configure Kestrel to use the certificate 
+Add the code for the ConfigureEndpoints extension method to your application 
+Call the code when setting up Kestrel for your host in Program.cs 

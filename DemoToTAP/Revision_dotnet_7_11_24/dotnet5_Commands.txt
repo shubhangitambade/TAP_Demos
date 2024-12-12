@@ -1,0 +1,8 @@
+1.dotnet new sln
+2.dotnet new consolne -o TestApp
+3.dotnet sln add ./TestApp/TestApp.csproj
+4.dotnet sln add ./HelloWorldApp/HelloWorldApp.csproj
+
+5.dotnet add package Microsoft.EntityFrameworkCore
+6.dotnet add package Microsoft.EntityFrameworkCore.Tools
+7.dotnet add package Pomelo.EntityFrameworkCore.MySql --version 8.0.0

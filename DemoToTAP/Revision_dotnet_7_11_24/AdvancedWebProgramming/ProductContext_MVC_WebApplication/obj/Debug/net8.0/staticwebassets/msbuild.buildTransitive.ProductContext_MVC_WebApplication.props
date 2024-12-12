@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\ProductContext_MVC_WebApplication.props" />
+</Project>

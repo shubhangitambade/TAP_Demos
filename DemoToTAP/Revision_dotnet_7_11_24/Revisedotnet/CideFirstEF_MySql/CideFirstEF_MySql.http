@@ -1,0 +1,6 @@
+@CideFirstEF_MySql_HostAddress = http://localhost:5053
+
+GET {{CideFirstEF_MySql_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

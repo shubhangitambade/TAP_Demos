@@ -1,0 +1,21 @@
+﻿@using EmployeDbContext.Models;
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+   
+
+}
+
+<h1>Employee Details</h1>
+<p><a href="/employee/Index">Employees</a></p>
+@{
+    Employee Emp = (Employee)ViewData["singleEmployee"];
+}
+
+<label>Id</label> :  <p>@Emp.Id</p>
+<label>First Name</label> :  <p>@Emp.FirstName</p>
+<label>Last Name</label> :  <p>@Emp.LastName</p>
+<label>Email</label> :  <p>@Emp.Email</p>
+<label>Contact</label> :  <p>@Emp.Contact</p>

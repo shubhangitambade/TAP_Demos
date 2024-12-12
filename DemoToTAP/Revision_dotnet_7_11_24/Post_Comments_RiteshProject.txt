@@ -1,0 +1,46 @@
+namespace PostCommentsApi.Models
+{
+    public class Comment
+    {
+        public int Id { get; set; }  
+        public int PostId { get; set; }  
+        public int? UserId { get; set; }    
+        public string Author { get; set; }  
+        public string Content { get; set; }  
+        public Post Post { get; set; }  
+        public User User { get; set; }  
+    }
+}
+ 
+namespace PostCommentsApi.Models {    publi... by Ritesh Chopra (Unverified)
+Ritesh Chopra (Unverified)
+10:52 AM
+namespace PostCommentsApi.Models
+{
+   public class Post
+{
+    public int Id { get; set; }
+    public string Title { get; set; }
+    public string Content { get; set; }
+    public int? UserId { get; set; }
+    public User User { get; set; }  
+    public ICollection<Comment> Comments { get; set; } = new List<Comment>();
+}
+}
+ 
+
+
+Signup
+Login
+Display List of all Posts to all users (Only after login)
+Create new post
+Edit Post (Only user can edit his own posts)
+Post detail page
+Show all comments on post details page
+Edit Comment
+-------------------------------------------------
+Jwt token create after login 
+Front end pagee forr all post (without login)
+my post (after login)
+Logout
+--------------------------------------------------

@@ -1,0 +1,45 @@
+This is how Microsoft explains it:
+
+.NET Framework, .NET Core, Xamarin
+
+.NET Framework is the "full" or "traditional" flavor of .NET that's distributed with Windows. Use this when you are building a desktop Windows or UWP app, or working with older ASP.NET 4.6+.
+
+.NET Core is cross-platform .NET that runs on Windows, Mac, and Linux. Use this when you want to build console or web apps that can run on any platform, including inside Docker containers. This does not include UWP/desktop apps currently.
+
+Xamarin is used for building mobile apps that can run on iOS, Android, or Windows Phone devices.
+
+Xamarin usually runs on top of Mono, which is a version of .NET that was built for cross-platform support before Microsoft decided to officially go cross-platform with .NET Core. Like Xamarin, the Unity platform also runs on top of Mono.
+
+A common point of confusion is where ASP.NET Core fits in. ASP.NET Core can run on top of either .NET Framework (Windows) or .NET Core (cross-platform), as detailed in this answer: Difference between ASP.NET Core (.NET Core) and ASP.NET Core (.NET Framework)
+-------------------------------------------------------------------------------------------------------
+1: .NET is the Ecosystem based on c# language
+2: .NET Standard is Standard (in other words, specification) of .NET Ecosystem .
+3: .Net Core Class Library is built upon the .Net Standard. .NET Standard you can make only class-library project that cannot be executed standalone and should be referenced by another .NET Core or .NET Framework executable project.If you want to implement a library that is portable to the .Net Framework, .Net Core and Xamarin, choose a .Net Standard Library
+
+4: .NET Framework is a framework based on .NET and it supports Windows and Web applications
+(You can make executable project (like Console application, or ASP.NET application) with .NET Framework
+
+5: ASP.NET is a web application development technology which is built over the .NET Framework.
+6: .NET Core also a framework based on .NET.
+7: It is the new open-source and cross-platform framework to build applications for all operating system including Windows, Mac, and Linux.
+
+Xamarin is a framework to develop a cross platform mobile application(iOS, Android, and Windows Mobile) using C#
+--------------------------------------------------------------------------------------------------------------
+NET Framework
+Proprietary framework
+Primarily for Windows OS
+Version 4.8 was its final version.
+Support for it will probably end with that of Windows 10 (and it's other server siblings )
+
+
+.NET (previously .NET Core)
+Free and open-source
+Cross-platform
+Successor to .NET Framework
+Currently .NET 6 is the LTS version
+
+
+Xamarin
+Free and open-source
+For building Android and iOS apps with .NET and C#
+Part of .NET

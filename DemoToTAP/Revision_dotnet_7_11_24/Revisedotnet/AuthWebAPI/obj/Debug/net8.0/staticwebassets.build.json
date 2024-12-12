@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "pWOIFMAmEBu8L4l9jCJdDVTmkCCJ5q2dvoLw8aP2Jd0=",
+  "Source": "AuthWebAPI",
+  "BasePath": "_content/AuthWebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,12 @@
+Create Blank Solution
+Add new project as console Application
+Add new project as class library
+Add new project as asp.net project
+Learn how to define Person class
+Learn how to define firstname, lastname , age as data members private to Person class
+Learn how to define constructor and destructor to Person class
+Learn how to write setter and getter methods for firstname, lastname and age
+Learn how to create object of Person in Main program.
+Learn how to set or get firstname of object created.
+Learn how to display data of person object created.
+has context menu

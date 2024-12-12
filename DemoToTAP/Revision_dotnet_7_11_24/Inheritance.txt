@@ -1,0 +1,565 @@
+Inheritance is a mechanism of reusing the functionalities of one class into another related class.
+
+Inheritance is referred to as "is a" relationship.
+
+[Note :
+	 that C# does not allow a class to inherit 	multiple classes. A class can only achieve 	multiple inheritances through interfaces.
+]
+-------------------------------------------------
+Role of Access Modifiers in Inheritance
+
+Access modifiers play an important role in inheritance. Access modifiers of each member in the base class impact their accessibility in the derived class.
+
+1] Public Members
+The public members of the base class are accessible in the derived class and also become part of the derived class object.
+
+Example: Inheritance of Public MembersCopy
+class Person
+{
+    public string FirstName { get; set; } // can be inherited
+}
+
+class Employee : Person
+{
+        
+}
+
+Employee emp = new Employee();
+emp.FirstName = "Bill"; // valid
+2] Private Members
+The private members of the base class cannot be accessed directly from the derived class and cannot be part of the derived class object.
+
+Example: Inheritance of Private MembersCopy
+class Person
+{
+    private string FirstName { get; set; }  // cannot be inherited
+}
+
+class Employee : Person
+{
+   
+}
+
+Employee emp = new Employee();
+emp.FirstName; // Compile-time error
+3] Protected Members
+The protected members of the base class can be accessible in the derived class but cannot be a part of the derived class object.
+
+Example: Inheritance of Protected MembersCopy
+class Person
+{
+    protected string FirstName { get; set; }
+}
+
+class Employee : Person
+{
+    public int GetName()
+    {
+        return this.FirstName;// valid
+    }
+}
+
+Employee emp = new Employee();
+emp.GetName();// valid
+emp.FirstName; // Compile-time error.
+4] Internal Members
+Internal members are accessible in the derived class and are part of the derived class object.
+
+Example: Inheritance of Internal MembersCopy
+class Person
+{
+    internal string FirstName { get; set; } 
+}
+
+class Employee : Person
+{
+        
+}
+
+Employee emp = new Employee();
+emp.Name= "Steve";// valid
+---------------------------------------------------
+Constructors
+Creating an object of the derived class will first call the constructor of the base class and then the derived class. If there are multiple levels of inheritance then the constructor of the first base class will be called and then the second base class and so on.
+
+Example: Constructors in InheritanceCopy
+class Person
+{
+    public Person()
+    {
+	    Console.WriteLine("Person Constructor");
+	}
+}
+
+class Employee : Person
+{
+    public Employee()
+    {
+	    Console.WriteLine("Employee Constructor");
+	}   
+}
+
+Employee emp = new Employee();
+Output:
+Person Constructor
+Employee Constructor
+Use the base keyword in the derived class to access the public members of the base class. For example, the following calls the base class's parameterized constructor using the :base().
+
+Example: base KeywordCopy
+class Person
+{
+    public Person()
+    {
+	    Console.WriteLine("Person Constructor");
+	}
+
+    public Person(string val)
+    {
+	    Console.WriteLine(val);
+	}
+}
+
+class Employee : Person
+{
+    public Employee() : base("Parameterized constructor of base class")
+    {
+	    Console.WriteLine("Employee Constructor");
+	}   
+}
+
+Employee emp = new Employee();
+Output:
+Parameterized constructor of base class
+Employee Constructor
+-------------------------------------------------
+Polymorphism
+
+Polymorphism
+Polymorphism is a Greek word that means multiple forms or shapes. You can use polymorphism if you want to have multiple forms of one or more methods of a class with the same name.
+
+In C#, polymorphism can be achieved in two ways:
+
+1 .Compile-time Polymorphism
+2 .Run-time Polymorphism
+Compile-time Polymorphism (Method Overloading)
+Compile-time polymorphism is also known as method overloading. C# allows us to define more than one method with the same name but with different signatures. This is called method overloading.
+
+Method overloading is also known as early binding or static binding because which method to call is decided at compile time, early than the runtime.
+
+Rules for Method Overloading:
+
+Method names should be the same but method signatures must be different. Either the number of parameters, type of parameters, or order of parameters must be different.
+The return type of the methods does not play any role in the method overloading.
+Optional Parameters take precedence over implicit type conversion when deciding which method definition to bind.
+The following example demonstrates the method overloading by defining multiple Print() methods with a different number of parameters of the same type.
+
+Example: Method Overloading Method OverloadingCopy
+class ConsolePrinter
+{
+    public void Print(string str){ 
+        Console.WriteLine(str);
+    }
+
+    public void Print(string str1, string str2){ 
+        Console.WriteLine($"{str1}, {str2}");
+    }
+
+    public void Print(string str1, string str2, string str3){ 
+        Console.WriteLine($"{str1}, {str2}, {str3}");
+    }
+}
+The following example demonstrates polymorphism using the same number of parameters with different types.
+
+Example: Method OverloadingCopy
+class ConsolePrinter
+{
+    public void Print(string str){ 
+        Console.WriteLine(str);
+    }
+
+    public void Print(int a){ 
+        Console.WriteLine($"Integer {a}");
+    }
+}
+The following example demonstrates polymorphism using the same number of parameters with different sequences.
+
+Example: Method OverloadingCopy
+class ConsolePrinter
+{
+    public void Print(int a, string str){ 
+        Console.WriteLine($"{a}, {str}");
+    }
+
+    public void Print(string str, int a){ 
+        Console.WriteLine($"{a}, {str}");
+    }
+}
+Please note that return type of methods is not considered. The following will give a compile-time error.
+
+Example: Invalid Method OverloadingCopy
+class ConsolePrinter
+{
+    public void Print(int a, string str)
+    { 
+        Console.WriteLine($"{a}, {str}");
+    }
+
+    public int Print(int a, string str){ 
+        Console.WriteLine($"{a}, {str}");
+        return 0;
+    } 
+}
+The following methods overloaded with different types, sequence, and number of parameters.
+
+Example: Method OverloadingCopy
+class ConsolePrinter
+{
+     public void Print(string str){ 
+        Console.WriteLine(str);
+    }
+
+    public void Print(string str1, string str2){ 
+        Console.WriteLine($"{str1}, {str2}");
+    }
+
+    public void Print(string str1, string str2, string str3){ 
+        Console.WriteLine($"{str1}, {str2}, {str3}");
+    }
+	
+    public void Print(int a){ 
+        Console.WriteLine($"Integer {a}");
+    }
+	
+	 public void Print(int a, string str){ 
+        Console.WriteLine($"{a}, {str}");
+    }
+
+    public void Print(string str, int a){ 
+        Console.WriteLine($"{a}, {str}");
+    }
+}
+Invoking Overloaded Methods
+We can call the overloaded method by passing the exact parameter it requires. For example, if we want to invoke the print(string str) method that displays a string value, we will pass only one argument of string type. Likewise, if we want to invoke the Print(int a, string str) method, we will pass int and string type argument.
+
+Example: Method OverloadingCopy
+public static void Main()
+{
+	ConsolePrinter cp = new ConsolePrinter();
+	cp.Print("Hello World!");
+	cp.Print(1, "John");
+}
+Thus, polymorphism using method overloading plays important role in designing an application. The simplest example in .NET API is the overloads of Console.WriteLine() methods.
+
+----------------
+Runtime Polymorphism: Method Overriding
+
+In C#, by default, all the members of a class are sealed and cannot be redefined in the derived class. Use the virtual keyword with a member of the base class to make it overridable, and use the override keyword in the derived class to indicate that this member of the base class is being redefined in the derived class.
+
+Example: Method OverridingCopy
+class Person
+{
+    public virtual void Greet()
+    {
+        Console.WriteLine("Hi! I am a person.");
+    }
+}
+
+class Employee : Person
+{
+    public override void Greet()
+    {
+        Console.WriteLine("Hello! I am an employee.");
+    }
+}
+
+Now, the question is which method will be called, the base class's method or the derived class method? Well, it depends on the type of object. Can you guess the output of the following program?
+
+Example: Calls to Overrided MethodCopy
+Person p1 = new Person();
+p1.Greet();
+
+Person p2 = new Employee();
+p2.Greet();
+
+Employee emp = new Employee();
+emp.Greet();
+Output:
+I am a human! I am a Manager! I am a Manager!
+C# will call the method depending on the type of the object not the type of the variable. If you create an object of the Person class then it will call the Greet() method of the Person class and if you create an object of the Employee class then it will call the Greet() method of the Employee class no matter to which type of variable it assigned to.
+
+As you learned in the previous chapter the C# compiler decides which methods to call at the compile time in the compile-time polymorphism. In the run time polymorphism, it will be decided at run time depending upon the type of an object.
+
+To understand why method overriding is called the runtime polymorphism, look at the following example.
+
+Example: Runtime PolymorphismCopy
+class Program
+{
+    public static void Display(Person p){ 
+        p.Greet();
+    }
+
+    public static void Main()
+    {
+        Person p1 = new Person();
+        Display(p1);
+            
+        Person p2 = new Employee();
+        Display(p2);
+            
+        Employee emp = new Employee();
+        Display(emp);
+    }
+}
+Output:
+I am a human! I am the Manager! I am the Manager!
+
+In the above example, the Display() method takes a parameter of the Person type. Thus, you can pass an object of the Person type or the Employee type when you call the Display() method. The Display() method does not know the type of parameter you passed at compile time. It can be anything at runtime. That's why method overriding is called run-time polymorphism.
+
+Rules for Overriding:
+1.A method, property, indexer, or event can be overridden in the derived class.
+2.Static methods cannot be overridden.
+3.Must use virtual keyword in the base class methods to indicate that the methods can be overridden.
+4.Must use the override keyword in the derived class to override the base class method.
+
+-----------------------------------------------
+Shadowing Concept using new Keyword
+Method Hiding in C#
+In the previous chapter, you learned about method overriding using the virtual and override keywords. Here you will learn what will happen if we don't use these keywords and still redefine the base class's methods in the derived class?
+
+Look at the following example.
+
+Example: Override Method without Virtual and Override KeywordsCopy
+class Person
+{
+    public virtual void Greet()
+    {
+        Console.WriteLine("Hi! I am a person.");
+    }
+}
+
+class Employee : Person
+{
+    public override void Greet()
+    {
+        Console.WriteLine("Hello! I am an employee.");
+    }
+}
+As you can see, the Greet() method is defined in the base class as well as the derived class without the virtual and override keywords. Now, guess the output of the following program.
+
+Example: Method HidingCopy
+class Program
+{
+    public static void Main()
+    {
+        Person p1 = new Person();
+        p1.Greet(); 
+            
+        Person p2 = new Employee();
+        P2.Greet();
+
+        Employee emp = new Employee();
+        emp.Greet();
+    }
+}
+When you compile the above program, it will give the following warning.
+
+warning CS0108: 'Employee.Greet()' hides inherited member 'Person.Greet()'. 
+Use the new keyword if hiding was intended.
+
+
+However, the above program will successfully run and will give the following output.
+
+Output:
+Hi! I am a person. Hello! I am an employee. Hello! I am an employee.
+As you can see, the calling of the Greet() method does not depend on the type of object. Here, Employee.Greet() hides the base class method Person.Greet(). This is called method hiding (of base class) in C#.
+
+Method Hiding using new Keyword
+Use the new keyword in the derived class to hide the base class method. This will be useful when you are resuing third-party APIs where you don't have control over the base class.
+
+The new keyword will not give the above warning. The following will give the same result but will not give any warning at compile time.
+
+Example: new KeywordCopy
+class Person
+{
+    public void Greet()
+    {
+        Console.WriteLine("I am a person!");
+    }
+}
+
+class Employee : Person
+{
+    public new void Greet()
+    {
+        Console.WriteLine("I am the Manager!");
+    }
+}
+By using the new keyword with the derived class method, C# treats it as a new method of the derived class and hides the base class method. The Employee.Greet() will be treated as a new method.
+
+The new keyword preserves the relationships that produce that output, but it suppresses the warning. The variables of type base class continue to access the members of the base class, and the variable of type derived class continues to access members in the derived class first, and then consider members inherited from the base class.
+
+Learn when to use override and new keywords.
+
+-------------------------------------------------------
+ABSTRACTION
+
+Thus, the process of identifying entities and characteristics which can be classes and their members from the business requirement is called "Abstraction".
+
+------------------------------------------------------
+ENCAPSULATION
+
+In C#, we can implement encapsulation mostly using class, interface, abstract class, property, method, struct, enum, and access modifiers. For the above Student entity, we can create the Student class. Use properties for the data members and methods for the actions.
+
+Advantages of Encapsulation:
+
+Hides data and complexities.
+Restrict unauthorized access of data by allowing authorization before data access.
+Allow validation before setting data.
+Only the author of the class needs to understand the implementation, not others.
+Makes applications easy to maintain.
+-------------------------------------------------------------
+Sealed Classes and Abstract Classes
+Here's a comparison of sealed classes and abstract classes in table format:
+
+Aspect	Abstract Class	Sealed Class
+1:Definition	A class that cannot be instantiated and provides a blueprint for other classes. It may contain abstract methods.	
+A class that cannot be inherited, providing a finalized design.
+2:Inheritance	Designed for inheritance, serving as blueprints for deriving new classes.	
+Prohibits inheritance; once sealed, it cannot serve as a base class.
+3:Completeness	Often represents incomplete designs; defines structure and behavior for derived classes.	
+Represents finalized designs; complete and not intended for extension.
+4:Usage Scenarios	Used to define a common interface for related classes, allowing polymorphism.	
+Used to prevent further inheritance and modification, ensuring integrity.
+5:Flexibility	Offers flexibility through inheritance and polymorphism, allowing variation in implementations.	
+Enforces a strict and final design, providing clarity and stability.
+
+Example	abstract class Shape { /* Definition */ } class Circle : Shape { /* Implementation */ }	
+sealed class Logger { /* Definition */ }
+
+Conclusion
+Sealed classes and abstract classes serve different purposes in C# class design. Abstract classes provide a flexible template for inheritance and polymorphism, allowing for variation in implementations. On the other hand, sealed classes offer a finalized design, prohibiting further inheritance and modification to ensure integrity and stability. Understanding the distinctions between sealed and abstract classes is essential for designing maintainable, scalable, and robust C# applications. By leveraging their respective features effectively, developers can create well-structured and extensible codebases that meet the requirements of their applications.
+
+------------------------------------------------------
+The abstract keyword is used for classes and methods:
+
+Abstract class: is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).
+
+Abstract method: can only be used in an abstract class, and it does not have a body. The body is provided by the derived class (inherited from).
+Why And When To Use Abstract Classes and Methods?
+To achieve security - hide certain details and only show the important details of an object.
+
+[Note: Abstraction can also be achieved with Interfaces, which you will learn more about in the next chapter.]
+
+-------------------------------------------------------
+Interfaces
+Another way to achieve abstraction in C#, is with interfaces.
+
+An interface is a completely "abstract class", which can only contain abstract methods and properties (with empty bodies)
+Example of Interface:
+// interface
+interface Animal 
+{
+  void animalSound(); // interface method (does not have a body)
+  void run(); // interface method (does not have a body)
+}
+
+It is considered good practice to start with the letter "I" at the beginning of an interface, as it makes it easier for yourself and others to remember that it is an interface and not a class.
+
+By default, members of an interface are abstract and public.
+
+[Note: Interfaces can contain properties and methods, but not fields.]
+
+To access the interface methods, the interface must be "implemented" (kinda like inherited) by another class. To implement an interface, use the : symbol (just like with inheritance). The body of the interface method is provided by the "implement" class. Note that you do not have to use the override keyword when implementing an interface:
+
+Example
+// Interface
+interface IAnimal 
+{
+  void animalSound(); // interface method (does not have a body)
+}
+
+// Pig "implements" the IAnimal interface
+class Pig : IAnimal 
+{
+  public void animalSound() 
+  {
+    // The body of animalSound() is provided here
+    Console.WriteLine("The pig says: wee wee");
+  }
+}
+
+class Program 
+{
+  static void Main(string[] args) 
+  {
+    Pig myPig = new Pig();  // Create a Pig object
+    myPig.animalSound();
+  }
+}
+
+
+Notes on Interfaces:
+1.Like abstract classes, interfaces cannot be used to create objects (in the example above, it is not possible to create an "IAnimal" object in the Program class)
+2.Interface methods do not have a body - the body is provided by the "implement" class
+3.On implementation of an interface, you must override all of its methods
+4.Interfaces can contain properties and methods, but not fields/variables
+5.Interface members are by default abstract and public
+6.An interface cannot contain a constructor (as it cannot be used to create objects)
+
+Why And When To Use Interfaces?
+-------------------------------
+1) To achieve security - hide certain details and only show the important details of an object (interface).
+
+2) C# does not support "multiple inheritance" (a class can only inherit from one base class). However, it can be achieved with interfaces, because the class can implement multiple interfaces. Note: To implement multiple interfaces, separate them with a comma (see example below).
+
+3) Create loosely coupled software.
+4) Support design by contract (an implementer must provide the entire interface).
+5) Allow for pluggable software.
+6) Allow objects to interact easily.
+7) Facilitate reuse of software.
+-------------------------------
+The following is an example of how to call an explicit interface method.
+
+interface Iinterface_1
+{
+    void interface1_method();
+}
+class Class1 : Iinterface_1
+{
+    public void Display()
+    {
+        Console.WriteLine("Class1 Display Method.");
+    }
+    //Implicit interface implementation
+    public void interface1_method()
+    {
+        Console.WriteLine("Iinterface_1 Method Implicit interface implementation.");
+    }
+    //Explicit interface implementation
+    void Iinterface_1.interface1_method()
+    {
+        Console.WriteLine("Iinterface_1 Method Explicit interface implementation.");
+    }
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+        Class1 objClass1 = new Class1();
+        objClass1.Display();
+        //Call Implicit interface method
+        objClass1.interface1_method();
+        //Call Explicit interface method
+        Iinterface_1 obj_1 = new Class1();
+        obj_1.interface1_method();
+        Console.ReadLine();
+    }
+}
+C#
+Output: Class1 Display Method.
+
+Iinterface_1 Method Implicit interface implementation.
+Iinterface_1 Method Explicit interface implementation.
+
+
+

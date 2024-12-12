@@ -1,0 +1,14 @@
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Basics_dotnet\Basic_1\bin\Debug\net8.0\Basic_indexer.exe
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Basics_dotnet\Basic_1\bin\Debug\net8.0\Basic_indexer.deps.json
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Basics_dotnet\Basic_1\bin\Debug\net8.0\Basic_indexer.runtimeconfig.json
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Basics_dotnet\Basic_1\bin\Debug\net8.0\Basic_indexer.dll
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Basics_dotnet\Basic_1\bin\Debug\net8.0\Basic_indexer.pdb
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Basics_dotnet\Basic_1\obj\Debug\net8.0\Basic_indexer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Basics_dotnet\Basic_1\obj\Debug\net8.0\Basic_indexer.AssemblyInfoInputs.cache
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Basics_dotnet\Basic_1\obj\Debug\net8.0\Basic_indexer.AssemblyInfo.cs
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Basics_dotnet\Basic_1\obj\Debug\net8.0\Basic_indexer.csproj.CoreCompileInputs.cache
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Basics_dotnet\Basic_1\obj\Debug\net8.0\Basic_indexer.dll
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Basics_dotnet\Basic_1\obj\Debug\net8.0\refint\Basic_indexer.dll
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Basics_dotnet\Basic_1\obj\Debug\net8.0\Basic_indexer.pdb
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Basics_dotnet\Basic_1\obj\Debug\net8.0\Basic_indexer.genruntimeconfig.cache
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Basics_dotnet\Basic_1\obj\Debug\net8.0\ref\Basic_indexer.dll

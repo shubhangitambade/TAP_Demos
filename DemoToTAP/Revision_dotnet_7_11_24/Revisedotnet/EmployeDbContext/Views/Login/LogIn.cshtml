@@ -1,0 +1,16 @@
+﻿@using EmployeDbContext.Models;
+
+@{
+    ViewData["Title"] = "Login Here";
+}
+
+<form method="post" action="Login/LogIn">
+
+    <label>Enter User Name : </label>
+    <input type="text" id="uname" name="username" />
+
+    <label>Enter Password  : </label>
+    <input type="password" id="password" name="password" />
+
+    <button type="submit">Login In</button>
+</form>

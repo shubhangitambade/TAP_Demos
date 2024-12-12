@@ -1,0 +1,94 @@
+Task :
+In C#, the task is used to implement Asynchronous Programming, i.e., executing operations asynchronously, and it was introduced with .NET Framework 4.0.
+
+--------------------------------------------------------
+The Task Parallel Library (TPL) is based on the concept of a task, which represents an asynchronous operation. In some ways, a task resembles a thread or ThreadPool work item but at a higher level of abstraction. The term task parallelism refers to one or more independent tasks running concurrently. Tasks provide two primary benefits:
+
+More efficient and more scalable use of system resources.
+
+Behind the scenes, tasks are queued to the ThreadPool, which has been enhanced with algorithms that determine and adjust to the number of threads. These algorithms provide load balancing to maximize throughput. This process makes tasks relatively lightweight, and you can create many of them to enable fine-grained parallelism.
+
+More programmatic control than is possible with a thread or work item.
+
+Tasks and the framework built around them provide a rich set of APIs that support waiting, cancellation, continuations, robust exception handling, detailed status, custom scheduling, and more.
+
+For both reasons, TPL is the preferred API for writing multi-threaded, asynchronous, and parallel code in .NET.
+----------------------------------------------------------------------------------------------------------------------
+A task that doesn't return a value is represented by the System.Threading.Tasks.Task class. A task that returns a value is represented by the System.Threading.Tasks.Task<TResult> class, which inherits from Task.
+-----------------------------------------------------------------------------------------
+Await :
+The await keyword provides a non-blocking way to start a task,then continue execution when that task completes. 
+
+Async : 
+The async keyword marks a method for asynchronous operations, while await is used to suspend the execution of
+the method until the awaited task is completed.
+----------------------------------------------------------------------------------------------
+Understanding Async/Await :
+At its core, the async/await pattern in C# is designed to handle asynchronous operations without the complexity that traditionally accompanies asynchronous programming. The async keyword marks a method for asynchronous operations, while await is used to suspend the execution of the method until the awaited task is completed.
+
+Here’s a basic example:
+
+public async Task<ActionResult> GetDataAsync()
+{
+    var data = await SomeAsyncOperation();
+    return View(data);
+}
+In this snippet, SomeAsyncOperation is an asynchronous method that returns a Task. The await keyword ensures that the execution of GetDataAsync is paused until SomeAsyncOperation completes, without blocking the thread.
+
+Efficient Use of I/O Bound Operations : 
+One of the prime scenarios for async/await in ASP.NET is handling I/O bound operations like database calls, file reads/writes, or web requests. These operations can significantly benefit from asynchronous execution as they often involve waiting for external resources.
+
+Consider the following example of a database operation using Entity Framework:
+
+public async Task<ActionResult> GetUsersAsync()
+{
+    using (var context = new UserDbContext())
+    {
+        var users = await context.Users.ToListAsync();
+        return View(users);
+    }
+}
+
+Here, ToListAsync() is an async version of ToList(), ensuring that the database operation does not block the thread while it’s waiting for the response.
+
+Enhancing Scalability with Async/Await : 
+Async/await improves scalability by freeing up threads while waiting for I/O operations to complete. This is particularly beneficial in web applications, where each request typically consumes a thread. By using async/await, you can serve more requests with the same number of threads.
+
+Best Practices : 
+Error Handling-
+Asynchronous methods should include proper error handling to manage exceptions. Use try/catch blocks to catch exceptions from awaited tasks:
+
+public async Task<ActionResult> SafeGetDataAsync()
+{
+    try
+    {
+        var data = await SomeAsyncOperation();
+        return View(data);
+    }
+    catch (Exception ex)
+    {
+        // Handle exception
+        return View("Error", ex);
+    }
+}
+
+Using Asynchronous Libraries : 
+Whenever possible, use asynchronous versions of library methods. For instance, if you’re working with Entity Framework, use ToListAsync instead of ToList, or ReadAsStringAsync instead of ReadToEnd in HttpClient.
+
+Async/Await with ASP.NET Core :
+If you’re working with ASP.NET Core, the benefits are even more pronounced due to its asynchronous nature. ASP.NET Core is designed to work with asynchronous programming models, making it easier to integrate async/await throughout your application.
+
+Conclusion --
+The async/await pattern in ASP.NET is a powerful paradigm that, when used correctly, can significantly enhance the performance and scalability of your web applications. By understanding its proper use, avoiding common pitfalls, and adhering to best practices, you can ensure that your application remains responsive and efficient under load.
+
+
+
+Key pieces to understand :
+1. Async code can be used for both I/O-bound and CPU-bound code, but differently for each scenario.
+
+2. Async code uses Task<T> and Task, which are constructs used to model work being done in the background.
+
+3 . The async keyword turns a method into an async method, which allows you to use the await keyword in its body.
+
+4 . When the await keyword is applied, it suspends the calling method and yields control back to its caller until the awaited task is complete.
+await can only be used inside an async method.

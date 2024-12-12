@@ -1,0 +1,17 @@
+Swagger UI offers a web-based UI that provides information about the service, using the generated OpenAPI specification. Both Swashbuckle and NSwag include an embedded version of Swagger UI, so that it can be hosted in your ASP.NET Core app using a middleware registration call.
+------------------------------
+Swagger is an open source API documentation that helps us to understand API service methods.
+---------------------------------
+When we consume a web API, then understanding its various methods and verbs can be challenging for a developer.  This solves the problem of generating documentation.  It's also known as OpenAPI.
+Swagger (OpenAPI) is a language-agnostic specification for describing REST APIs. It allows both computers and humans to understand the capabilities of a REST API without direct access to the source code. Its main goals are to:
+
+Minimize the amount of work needed to connect decoupled services.
+Reduce the amount of time needed to accurately document a service.
+The two main OpenAPI implementations for .NET are Swashbuckle and NSwag, see:
+
+Getting Started with Swashbuckle
+Getting Started with NSwag
+----------------------------------
+Swagger UI offers a web-based UI that provides information about the service, using the generated OpenAPI specification. Both Swashbuckle and NSwag include an embedded version of Swagger UI, so that it can be hosted in your ASP.NET Core app using a middleware registration call. The web UI looks like this:
+
+Each public action method in your controllers can be tested from the UI. Select a method name to expand the section. Add any necessary parameters, and select Try it out!.

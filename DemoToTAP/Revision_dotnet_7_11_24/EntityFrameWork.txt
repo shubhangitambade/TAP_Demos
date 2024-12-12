@@ -1,0 +1,43 @@
+What is Entity Framework?
+Entity Framework (EF) is an object-relational mapper that enables .NET developers to work with relational data using domain-specific objects.
+It eliminates the need for most of the data-access code that developers usually need to write.
+Its purpose is to abstract the ties to a relational database.
+Why Entity Framework?
+Entity Framework is an ORM, and ORMs are aimed to increase the developer’s productivity by reducing the redundant task of persisting the data used in our applications.
+
+Features of Entity Framework
+Entity Framework is a lightweight and extensible object-relational mapping (ORM) technology.
+Entity Framework supports multiple platforms like Windows, Linux, and macOS.
+Entity Framework supports both relational and non-relational data sources.
+Entity Framework works efficiently with widely used databases like SQL Server, SQL Server Compact, SQLite, and PostgreSQL.
+Entity Framework makes it easier for programmers to perform create, read, update, and delete (CRUD) operations by supporting databases. It also makes it easier for developers to perform unit testing by keeping in-memory tables.
+Entity Framework Development Approaches
+There are three approaches to creating entity frameworks.
+
+Code First Approach
+The Code First approach enables us to create a model and relation using classes and then create the database from these classes. It enables us to work with the Entity Framework in an object-oriented manner. In this approach, you can use empty databases and add tables too.
+
+Model First Approach
+In this approach, model classes and their relation are created first using the ORM designer, and the physical database will be generated using this model. The Model First approach means we create a diagram of the entity and relation that will be converted automatically into a code model.
+
+Database First Approach
+The Database First approach enables us to create an entity model from the existing database. This approach helps us to reduce the amount of code that we need to write. The following procedure will create an entity model using the Database First approach.
+
+Prerequisites
+
+Visual Studio 2022 (Any Edition — Community / Professional / Enterprise)
+Microsoft SQL Server 2008 or above.
+
+-------------------------------------------------------
+Steps to Follow to Implement EF8
+Step 1. Install Entity Framework Package from NuGet.
+
+Right Click on your project -> Click on”Manage NuGet Packages” -> Open “Browse” tab -> search below EF8 package
+
+Microsoft.EntityFrameworkCore
+Microsoft.EntityFrameworkCore.Design
+Microsoft.EntityFrameworkCore.Tools
+Microsoft.EntityFrameworkCore.SqlServer
+
+---------
+.Net Core 8 SDK or Later Version

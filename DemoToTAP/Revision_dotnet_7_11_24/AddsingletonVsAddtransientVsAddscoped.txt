@@ -1,0 +1,45 @@
+Stateful services that need to maintain data between requests might use AddScoped, 
+while stateless services can be registered as AddTransient. 
+Services shared globally across the application can be registered as AddSingleton.
+-------
+
+In ASP.NET Core's dependency injection (DI) system, you have three options for registering services: AddTransient, AddScoped, and AddSingleton. These options control the lifecycle and behavior of the registered services. Let's explore these concepts with a simple restaurant example.
+
+AddTransient
+Imagine a restaurant where each table represents a service request. In this case, using AddTransient is like assigning a new waiter to each table.
+When you use AddTransient, a new instance of the service is created every time it's requested, and it's disposed of when the request is finished.
+This is suitable for services that are stateless and don't maintain any state between requests.
+[Statelessness. In REST architecture, statelessness refers to a communication method in which the server completes every client request independently of all previous requests. Clients can request resources in any order, and every request is stateless or isolated from other requests.]
+Syntax
+
+services.AddTransient<ITableService, TableService>();
+----------
+AddScoped
+In our restaurant analogy, AddScoped is similar to assigning a waiter to each customer or group of customers during their visit. The waiter remains the same throughout the customer's meal.
+When you use AddScoped, a single instance of the service is created for each scope. In a web application, a scope typically corresponds to an HTTP request.
+The service instance is reused throughout the scope's lifetime and then disposed of when the scope ends.
+This is useful for services that maintain some state during a single HTTP request.
+Syntex
+
+services.AddScoped<IWaiterService, WaiterService>();
+-----------
+AddSingleton
+In the restaurant analogy, AddSingleton is like having a single head chef for the entire restaurant. Regardless of how many customers come and go, there's only one head chef.
+When you use AddSingleton, a single instance of the service is created for the lifetime of the application.
+This means the service is shared among all requests and clients throughout the lifetime of the application.
+It's suitable for services that are stateless or designed to be shared globally.
+Syntex
+
+services.AddSingleton<IChefService, ChefService>();
+-------------------
+public void ConfigureServices(IServiceCollection services) {
+    // Transient: New waiter for each table (per request)
+    services.AddTransient<ITableService, TableService>();
+
+    // Scoped: One waiter per group of customers (per request)
+    services.AddScoped<IWaiterService, WaiterService>();
+
+    // Singleton: One head chef for the entire restaurant (shared)
+    services.AddSingleton<IChefService, ChefService>();
+}
+In practice, your choice of service lifetime depends on the behavior and requirements of the services in your application. Stateful services that need to maintain data between requests might use AddScoped, while stateless services can be registered as AddTransient. Services shared globally across the application can be registered as AddSingleton.

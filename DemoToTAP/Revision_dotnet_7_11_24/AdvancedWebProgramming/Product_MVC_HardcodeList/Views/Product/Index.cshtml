@@ -1,0 +1,15 @@
+﻿@using Product_MVC_HardcodeList.Models;
+
+<div>
+    <h1>List Of Products</h1>
+    <a href="/Product/Add">Add New Product</a>
+
+    @{
+        List<Product> products = (List<Product>)ViewData["prds"];
+
+        foreach(Product prd in products)
+        {
+            <p>@prd.Id : @prd.Name |  <a href="/Product/Details/@prd.Id">Details</a> | <a href="/Product/Edit/@prd.Id">Edit</a> | <a href="/Product/Delete/@prd.Id">Delete</a></p>
+        }
+    }
+</div>

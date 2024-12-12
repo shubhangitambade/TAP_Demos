@@ -1,0 +1,138 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Dotnet_Shubh\\Revision_dotnet_7_11_24\\Revisedotnet\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{51016FD6-F670-4D5B-866C-D6F002E8E905}|EmployeDbContext\\EmployeDbContext.csproj|c:\\dotnet_shubh\\revision_dotnet_7_11_24\\revisedotnet\\employedbcontext\\dbcontext\\employeedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51016FD6-F670-4D5B-866C-D6F002E8E905}|EmployeDbContext\\EmployeDbContext.csproj|solutionrelative:employedbcontext\\dbcontext\\employeedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51016FD6-F670-4D5B-866C-D6F002E8E905}|EmployeDbContext\\EmployeDbContext.csproj|c:\\dotnet_shubh\\revision_dotnet_7_11_24\\revisedotnet\\employedbcontext\\views\\employee\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{51016FD6-F670-4D5B-866C-D6F002E8E905}|EmployeDbContext\\EmployeDbContext.csproj|solutionrelative:employedbcontext\\views\\employee\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51016FD6-F670-4D5B-866C-D6F002E8E905}|EmployeDbContext\\EmployeDbContext.csproj|c:\\dotnet_shubh\\revision_dotnet_7_11_24\\revisedotnet\\employedbcontext\\views\\employee\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{51016FD6-F670-4D5B-866C-D6F002E8E905}|EmployeDbContext\\EmployeDbContext.csproj|solutionrelative:employedbcontext\\views\\employee\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51016FD6-F670-4D5B-866C-D6F002E8E905}|EmployeDbContext\\EmployeDbContext.csproj|c:\\dotnet_shubh\\revision_dotnet_7_11_24\\revisedotnet\\employedbcontext\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{51016FD6-F670-4D5B-866C-D6F002E8E905}|EmployeDbContext\\EmployeDbContext.csproj|solutionrelative:employedbcontext\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{51016FD6-F670-4D5B-866C-D6F002E8E905}|EmployeDbContext\\EmployeDbContext.csproj|c:\\dotnet_shubh\\revision_dotnet_7_11_24\\revisedotnet\\employedbcontext\\views\\employee\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{51016FD6-F670-4D5B-866C-D6F002E8E905}|EmployeDbContext\\EmployeDbContext.csproj|solutionrelative:employedbcontext\\views\\employee\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2CCB0397-A6FF-467D-A120-9D9E70284481}|EmployeeWebAPI\\EmployeeWebAPI.csproj|c:\\dotnet_shubh\\revision_dotnet_7_11_24\\revisedotnet\\employeewebapi\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2CCB0397-A6FF-467D-A120-9D9E70284481}|EmployeeWebAPI\\EmployeeWebAPI.csproj|solutionrelative:employeewebapi\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2CCB0397-A6FF-467D-A120-9D9E70284481}|EmployeeWebAPI\\EmployeeWebAPI.csproj|c:\\dotnet_shubh\\revision_dotnet_7_11_24\\revisedotnet\\employeewebapi\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2CCB0397-A6FF-467D-A120-9D9E70284481}|EmployeeWebAPI\\EmployeeWebAPI.csproj|solutionrelative:employeewebapi\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmployeeDBContext.cs",
+              "DocumentMoniker": "C:\\Dotnet_Shubh\\Revision_dotnet_7_11_24\\Revisedotnet\\EmployeDbContext\\DbContext\\EmployeeDBContext.cs",
+              "RelativeDocumentMoniker": "EmployeDbContext\\DbContext\\EmployeeDBContext.cs",
+              "ToolTip": "C:\\Dotnet_Shubh\\Revision_dotnet_7_11_24\\Revisedotnet\\EmployeDbContext\\DbContext\\EmployeeDBContext.cs",
+              "RelativeToolTip": "EmployeDbContext\\DbContext\\EmployeeDBContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T10:28:36.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Dotnet_Shubh\\Revision_dotnet_7_11_24\\Revisedotnet\\EmployeDbContext\\Views\\Employee\\Edit.cshtml",
+              "RelativeDocumentMoniker": "EmployeDbContext\\Views\\Employee\\Edit.cshtml",
+              "ToolTip": "C:\\Dotnet_Shubh\\Revision_dotnet_7_11_24\\Revisedotnet\\EmployeDbContext\\Views\\Employee\\Edit.cshtml",
+              "RelativeToolTip": "EmployeDbContext\\Views\\Employee\\Edit.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-06T11:31:43.649Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Dotnet_Shubh\\Revision_dotnet_7_11_24\\Revisedotnet\\EmployeDbContext\\Views\\Employee\\Index.cshtml",
+              "RelativeDocumentMoniker": "EmployeDbContext\\Views\\Employee\\Index.cshtml",
+              "ToolTip": "C:\\Dotnet_Shubh\\Revision_dotnet_7_11_24\\Revisedotnet\\EmployeDbContext\\Views\\Employee\\Index.cshtml",
+              "RelativeToolTip": "EmployeDbContext\\Views\\Employee\\Index.cshtml",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAwwCcAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-06T11:25:40.335Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Update.cshtml",
+              "DocumentMoniker": "C:\\Dotnet_Shubh\\Revision_dotnet_7_11_24\\Revisedotnet\\EmployeDbContext\\Views\\Employee\\Update.cshtml",
+              "RelativeDocumentMoniker": "EmployeDbContext\\Views\\Employee\\Update.cshtml",
+              "ToolTip": "C:\\Dotnet_Shubh\\Revision_dotnet_7_11_24\\Revisedotnet\\EmployeDbContext\\Views\\Employee\\Update.cshtml",
+              "RelativeToolTip": "EmployeDbContext\\Views\\Employee\\Update.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-06T11:25:04.087Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmployeeController.cs",
+              "DocumentMoniker": "C:\\Dotnet_Shubh\\Revision_dotnet_7_11_24\\Revisedotnet\\EmployeDbContext\\Controllers\\EmployeeController.cs",
+              "RelativeDocumentMoniker": "EmployeDbContext\\Controllers\\EmployeeController.cs",
+              "ToolTip": "C:\\Dotnet_Shubh\\Revision_dotnet_7_11_24\\Revisedotnet\\EmployeDbContext\\Controllers\\EmployeeController.cs",
+              "RelativeToolTip": "EmployeDbContext\\Controllers\\EmployeeController.cs",
+              "ViewState": "AQIAAEMAAAAAAAAAAAAAAEkAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T11:11:27.549Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EmployeeService.cs",
+              "DocumentMoniker": "C:\\Dotnet_Shubh\\Revision_dotnet_7_11_24\\Revisedotnet\\EmployeeWebAPI\\Services\\EmployeeService.cs",
+              "RelativeDocumentMoniker": "EmployeeWebAPI\\Services\\EmployeeService.cs",
+              "ToolTip": "C:\\Dotnet_Shubh\\Revision_dotnet_7_11_24\\Revisedotnet\\EmployeeWebAPI\\Services\\EmployeeService.cs",
+              "RelativeToolTip": "EmployeeWebAPI\\Services\\EmployeeService.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAmwDgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T17:55:22.987Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EmployeeController.cs",
+              "DocumentMoniker": "C:\\Dotnet_Shubh\\Revision_dotnet_7_11_24\\Revisedotnet\\EmployeeWebAPI\\Controllers\\EmployeeController.cs",
+              "RelativeDocumentMoniker": "EmployeeWebAPI\\Controllers\\EmployeeController.cs",
+              "ToolTip": "C:\\Dotnet_Shubh\\Revision_dotnet_7_11_24\\Revisedotnet\\EmployeeWebAPI\\Controllers\\EmployeeController.cs",
+              "RelativeToolTip": "EmployeeWebAPI\\Controllers\\EmployeeController.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAAADAAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T17:54:59.684Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

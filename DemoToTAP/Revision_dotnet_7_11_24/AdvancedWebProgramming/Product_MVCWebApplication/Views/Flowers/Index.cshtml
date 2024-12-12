@@ -1,0 +1,26 @@
+﻿@using Product_MVCWebApplication.Models;
+
+<h1>List Of Flowers </h1>
+
+<div>
+    <a href="/Flowers/Insert" >Add New Flower </a>
+    <hr/>
+
+    @{
+        List<Product> prds = (List<Product>)ViewData["Flowers"];
+        foreach(Product prd in prds)
+        {
+            <p>@prd.Id . @prd.Title |<a href="Flowers/Details/@prd.Id">FlowerDetails </a> | <a href="Flowers/Edit/@prd.Id">Edit</a>  |<a href="Flowers/Delete/@prd.Id">Remove</a></p>
+
+        }
+    }
+
+</div>
+
+
+
+<form action = "/account/logout" method = "post">
+
+    <button type="submit">Logout</button>
+</form>
+

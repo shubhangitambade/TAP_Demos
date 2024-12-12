@@ -1,0 +1,16 @@
+﻿@using AspdotnetCoreIdentity.Models;
+@model LoginViewModel;
+
+<h1>User Login</h1>
+
+<form method="post">
+    <label>Email : </label>
+    <input type="text" id="email" name="email" />
+
+    <label>Password : </label>
+    <input type="password" id="password" name="password" />
+
+    @* <input type="checkbox" id="RememberMe" name="RememberMe" value="Remember Me"> *@
+
+    <button typt="submit" id="btnlogin" name="btmLogin" >Login</button>
+</form>

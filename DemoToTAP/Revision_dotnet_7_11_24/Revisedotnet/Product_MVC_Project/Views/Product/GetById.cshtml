@@ -1,0 +1,13 @@
+﻿@using Product_MVC_Project.Models;
+
+<h1>Details of Product</h1>
+
+@{
+    Product product = (Product)ViewData["prd"];
+}
+<p>Id : @product.Id</p>
+<p>Name : @product.Name</p>
+<p>Price : @product.Price</p>
+
+<a href="/product/Edit/@product.Id">Update</a>
+<a href="/product/Delete/@product.Id">Delete</a>

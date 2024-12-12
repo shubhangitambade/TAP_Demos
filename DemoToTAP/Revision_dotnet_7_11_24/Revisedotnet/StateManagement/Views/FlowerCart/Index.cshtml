@@ -1,0 +1,34 @@
+﻿@using StateManagement.Models;
+@model StateManagement.Models.Cart;
+
+@{
+    ViewData["Title"] = "Shopping Cart Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">My Shopping Cart</h1>
+
+    <div>
+        <table class="table">
+            <thead>
+                <tr>Flower</tr>
+                <tr>Quantity</tr>
+                <tr>Total</tr>
+                <tr>Action</tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.theFlower.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.theFlower.Quantity)</td>
+                        <td><p>@(item.theFlower.SalePrice * item.Quantity) </p> </td>
+                        <td><a href="/ShoppingCart/remove/@item.theFlower.Id">Remove</a></td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

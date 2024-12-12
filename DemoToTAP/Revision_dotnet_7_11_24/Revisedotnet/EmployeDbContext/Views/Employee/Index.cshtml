@@ -1,0 +1,56 @@
+﻿@using EmployeDbContext.Models;
+
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<h1>Employees</h1>
+<p><a href="/employee/Add">Add New Employee</a></p>
+
+<table>
+    <thead>
+        <th>
+            <label>Id  </label>
+        </th>
+        <th>
+            <label>First Name  </label>
+        </th>
+        <th>
+            <label>Last Name  </label>
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </thead>
+    <tbody>
+        @{
+
+            List<Employee> allEmployees = (List<Employee>)ViewData["allEmployees"];       
+        }
+
+        @foreach (var emp in allEmployees)
+        {
+            <tr>
+                <td>
+                    <p>@emp.Id</p>
+                </td>
+      
+                <td>
+                    <p>@emp.FirstName   @emp.LastName</p>
+                </td>
+           
+                <td>
+                    <a href="/employee/Details/@emp.Id">Details</a><&nbsp></&nbsp>
+                </td>
+    
+                <td>
+                    <a href="/employee/Edit/@emp.Id">Update Employee</a><&nbsp></&nbsp>
+                </td>
+                <td>
+                    <a href="/employee/Delete/@emp.Id">Delete Employee</a><&nbsp></&nbsp>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

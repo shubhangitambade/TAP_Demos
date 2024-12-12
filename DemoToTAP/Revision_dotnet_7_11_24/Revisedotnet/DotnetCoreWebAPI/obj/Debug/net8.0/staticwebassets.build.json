@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "D+RRavawMUt59MUlbquj//5/Ty9oXGO5Y8+yYOZ0QpY=",
+  "Source": "DotnetCoreHeroWebAPI",
+  "BasePath": "_content/DotnetCoreHeroWebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

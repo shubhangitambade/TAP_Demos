@@ -1,0 +1,352 @@
+What are HTML Helpers in ASP.NET Core MVC?
+HTML Helpers in ASP.NET Core MVC are methods used in Razor views to generate HTML elements dynamically. They provide a way to render standard HTML elements programmatically, which helps reduce the amount of manual HTML code we have to write in our views.
+
+Why HTML Helpers in ASP.NET Core MVC?
+HTML Helpers in ASP.NET Core MVC simplify the process of creating HTML elements on a web page and binding data to them. Using HTML Helpers reduces the chances of introducing typos or errors when manually writing HTML code. Additionally, HTML Helpers facilitate model binding, validation, and integration with ASP.NET Core features such as tag helpers, form validation, and data annotations. They also promote code reusability and maintainability, making views cleaner and easier to manage.
+
+
+
+Categories of HTML Helpers Methods in ASP.NET Core MVC  Application
+The HTML Helper methods in ASP.NET Core MVC can be categorized based on the types of HTML they generate. They are as follows:
+
+1]Input Control Helpers:
+Generate HTML input elements such as text boxes, checkboxes, radio buttons, etc. Examples include:
+
+Html.TextBox()
+Html.CheckBox()
+Html.RadioButton()
+
+2]Display Control Helpers:
+Render read-only representations of model properties. Examples include:
+
+Html.Label()
+Html.DisplayFor()
+Html.DisplayTextFor()
+
+3]Form Helpers:
+Help generate form elements and manage form submissions. Examples include:
+
+Html.BeginForm()
+Html.EndForm()
+
+4]Validation Helpers:
+Display validation messages related to model validation. Examples include:
+
+Html.ValidationMessageFor()
+Html.ValidationSummary()
+
+5]Link HTML Helpers:
+The Link HTML Helpers generate anchor (<a>) tags that create hyperlinks to different pages within your application. The following are the examples:
+
+Html.ActionLink
+Html.RouteLink
+
+Why HTML Helpers in ASP.NET Core MVC?
+The primary reason to use HTML Helpers is to maintain a clean and maintainable codebase. HTML Helpers abstract the HTML generation part from the business logic, making the Razor views cleaner and more maintainable. The following are the advantages of using HTML Helpers in ASP.NET Core MVC Applications:
+
+1.Reusability: Using HTML Helpers, we avoid duplicating HTML code across views, enhancing code reusability and maintainability.
+2.Model Binding: HTML Helpers simplify the connection between the view and model properties, ensuring that form fields are correctly bound to data properties. This makes it easier to work with forms and dynamic data.
+3.Validation: HTML Helpers automatically generate client-side validation for forms based on data annotations in the model, reducing the need to write manual validation code.
+4.Consistency: Helpers ensure consistent rendering of HTML elements across views, especially for form fields and controls.
+5.Reduced Errors: Since HTML Helpers are strongly typed (in the case of For helpers), they reduce the risk of errors by enabling compile-time checking of model properties.
+
+---------------------------------------------------------
+Data Annotations are nothing but certain validations that we put in our models to validate the input from the user. ASP.NET MVC provides a unique feature in which we can validate the models using the Data Annotation attribute. Import the following namespace to use data annotations in the application.
+
+System.ComponentModel.DataAnnotations
+
+----------
+Types of Data Annotations in ASP.NET MVC
+ 
+Required
+This attribute specifies that the value is mandatory and cannot be skipped.
+
+Syntax
+
+[Required(ErrorMessage="Please enter name"),MaxLength(30)]
+
+DataType
+This attribute is used to specify the datatype of the model.
+
+Syntax
+
+[DataType(DataType.Text)]
+
+Range
+Using this attribute we can set a range between two numbers.
+
+Syntax
+
+[Range(100,500,ErrorMessage="Please enter correct value")]
+
+StringLength
+Using this attribute we can specify maximum and minimum length of the property.
+
+Syntax
+
+[StringLength(30,ErrorMessage="Do not enter more than 30 characters")]
+
+DisplayName
+Using this attribute we can specify property name to be displayed on view.
+
+Syntax
+
+[Display(Name="Student Name")]
+
+MaxLength
+Using this attribute we can specify maximum length of property.
+
+Syntax
+
+[MaxLength(3)]
+
+Bind
+This attribute specifies fields to include or exclude for model binding.
+
+Syntax
+
+[Bind(Exclude = "StudentID")]
+
+DisplayFormat
+This attribute allows us to set date in the format specified as per the attribute.
+
+Syntax
+
+[DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}")]
+
+RegularExpression
+We can set a regex pattern for the property. For ex: Email ID.
+
+Syntax
+
+[RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Email is not valid.")]
+
+e.g:
+public class Student
+
+   [ScaffoldColumn(false)]
+   publicintStudentID { get; set; }
+   [DataType(DataType.Text)]
+   [Required(ErrorMessage = "Please enter name"), MaxLength(30)]
+   [Display(Name = "Student Name")]
+
+   public string Name { get; set; }
+   [MaxLength(3),MinLength(1)]
+   [Required(ErrorMessage = "Please enter marks")]
+
+   publicint Marks { get; set; }
+   [DataType(DataType.EmailAddress)]
+   [Required(ErrorMessage = "Please enter Email ID")]
+   [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Email is not valid.")]
+
+   public string Email { get; set; }
+   [Required(ErrorMessage = "Please enter department")]
+
+   public string Department { get; set; }
+   [Required(ErrorMessage = "Please enter Mobile No")]
+   [Display(Name = "Contact Number")]
+   [DataType(DataType.PhoneNumber)]
+   public int Mobile { get; set; }
+}
+----------------------------------------------------------
+Client Side Validation
+Important:
+[Server-side validations are done on the server, so a round trip exists between the Client Browser and the Web Server. The request has to be sent over the network to the web server for processing. If the network is slow or the server is busy processing other requests, the end user may have to wait a few seconds, which also increases the load on the server.
+
+This validation can also be performed on the client side itself, which means there is no round trip to the server, no waiting time, the client has instant feedback, and the load on the web server is also greatly reduced.]
+
+How do you enable client-side validation in ASP.NET Core MVC?
+To enable Client-Side Validation in ASP.NET Core MVC Application, we need to include the necessary JavaScript files. These files can be added via CDNs or local files. For example, include them via CDNs in your _Layout.cshtml file as follows:
+
+
+You can also add the following files to your _Layout.cshtml to enable client-side validation using local files. The order is also important, so please include them in the following order.
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+The order in which the script files are referenced is also important. jquery.validate is dependent on jquery, and jquery.validate.unobtrusive is dependent on jquery.validate, so they should be referenced in the above order. Otherwise, client-side validation will not work as expected.
+
+So, open the _Layout.cshtml file, copy and paste the following code. Here, we are adding the javascript local file to enable client-side validations.
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ASPNETCoreIdentityDemo</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ASPNETCoreIdentityDemo.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                       
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SecureMethod">Secure</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="NonSecureMethod">Non Secure</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        @*If the user is signed-in display Logout link*@
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <form method="post" asp-controller="account" asp-action="logout">
+                                    <button type="submit" style="width:auto"
+                                            class="nav-link btn btn-link py-0">
+                                        Logout @User?.Identity?.Name
+                                    </button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="account" asp-action="register">
+                                    Register
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="account" asp-action="login">
+                                    Login
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - ASPNETCoreIdentityDemo - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+With the above changes in place, client-side validation is enabled, and you will see the error messages without making a round trip to the server.
+
+----------------------------
+What is Remote Validation in ASP.NET Core?
+Remote Validation in ASP.NET Core is a feature that allows us to perform server-side validation asynchronously from the client side. It allows a controller action method to be called using a client-side script, which is useful when calling a server-side method without a full-page postback.
+
+So, this is useful when we need to validate input filed against server-side data or logic that cannot be performed on the client side. For instance, checking if a username or email address is already in use typically requires a database lookup, which can only be done on the server.
+
+Example to Understand Remote Validation in ASP.NET Core
+Let us understand the Remote Validation in ASP.NET Core MVC Application with an example. Now, when we register a new user with an existing email, we will get the following error message only when we submit the Register button:
+
+Example to Understand Remote Validation in ASP.NET Core
+
+Checking if another user has already taken the provided email can only be done on the server. At this point, when we click on the Register button, it will make a full-page post back to the server. So, instead of making a full-page post back to the server, we can use Remote Validation, which can asynchronously call the server to check whether the email has already been taken. Let us proceed and see how we can implement this in ASP.NET Core.
+
+Creating the Validation Action:
+We need to create an action method that will be called for validation. This action method should return a JSON result indicating whether the validation is successful or not. So, please add the following IsEmailAvailable method in the Account Controller. This method should respond to both HTTP GET and POST, which is why we specified HTTP verbs (HttpPost and HttpGet). The FindByEmailAsync() method of the User Manager class is used to find a user based on their email address.
+
+[AllowAnonymous]
+[HttpPost]
+[HttpGet]
+public async Task<IActionResult> IsEmailAvailable(string Email)
+{
+    //Check If the Email Id is Already in the Database
+    var user = await userManager.FindByEmailAsync(Email);
+    if (user == null)
+    {
+        return Json(true);
+    }
+    else
+    {
+        return Json($"Email {Email} is already in use.");
+    }
+}
+An AJAX request is issued to this method. If this method returns true, validation succeeds. Otherwise, validation fails, and the form cannot be submitted. The parameter name Email must match the field name on the view. If they don’t match, the model binder will not be able to bind the value with the parameter, and validation will not work as expected.
+
+Apply Remote Attribute:
+Next, we need to apply the Remote attribute to the property we want to validate. To validate the Email property with Remote Validation, please modify the RegisterViewModel as follows. As you can see, we have applied the Remote Data Annotation Attribute with the Email Property and specified the controller and action name.
+
+using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
+namespace ASPNETCoreIdentityDemo.Models
+{
+    public class RegisterViewModel
+    {
+        [Required]
+        [EmailAddress]
+        [Remote(action:"IsEmailAvailable", controller: "Account")]
+        public string Email { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirm password")]
+        [Compare("Password", ErrorMessage = "Password and confirmation password do not match.")]
+        public string ConfirmPassword { get; set; }
+    }
+}
+-----------------------------
+Model state
+Model state represents errors that come from two subsystems: model binding and model validation. Errors that originate from model binding are generally data conversion errors. For example, an "x" is entered in an integer field. Model validation occurs after model binding and reports errors where data doesn't conform to business rules. For example, a 0 is entered in a field that expects a rating between 1 and 5.
+
+Both model binding and model validation occur before the execution of a controller action or a Razor Pages handler method. For web apps, it's the app's responsibility to inspect ModelState.IsValid and react appropriately. Web apps typically redisplay the page with an error message, as shown in the following Razor Pages example:
+
+C#
+
+Copy
+public async Task<IActionResult> OnPostAsync()
+{
+    if (!ModelState.IsValid)
+    {
+        return Page();
+    }
+
+    _context.Movies.Add(Movie);
+    await _context.SaveChangesAsync();
+
+    return RedirectToPage("./Index");
+}
+For ASP.NET Core MVC with controllers and views, the following example shows how to check ModelState.IsValid inside of a controller action:
+
+C#
+
+Copy
+public async Task<IActionResult> Create(Movie movie)
+{
+    if (!ModelState.IsValid)
+    {
+        return View(movie);
+    }
+
+    _context.Movies.Add(movie);
+    await _context.SaveChangesAsync();
+
+    return RedirectToAction(nameof(Index));
+}
+[Web API controllers don't have to check ModelState.IsValid if they have the [ApiController] attribute. In that case, an automatic HTTP 400 response containing error details is returned when model state is invalid. For more information, see Automatic HTTP 400 responses.]
+
+

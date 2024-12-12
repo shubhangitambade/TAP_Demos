@@ -1,0 +1,12 @@
+https://dotnettutorials.net/lesson/intermediate-language/
+
+-------------------------------------------------
+ILDASM.exe is meant to disassemble CLR code. If there is not a valid CLR header, it usually means that the executable was written in another language and compiled natively.
+--------------------------------------------
+When using 'ildasm.exe', you need to open '....dll' instead of '....exe'.
+-----------------------------------------------
+In the Visual Studio prompt, type ildasm and it will open. Then from the File menu, select Open menu or Press (Ctrl +O). From there we can open any PE files like exe,dlls, mod,mdl etc.
+-------------------------------------------------
+As you can see, the assembly consists of two things (Manifest and Intermediate language). 
+1 : The Manifest contains metadata about the assembly, like the name of the assembly, the version number of the assembly, culture, and strong name information.
+2 : Metadata also contains information about the referenced assemblies. Each reference includes the dependent assembly’s name, assembly metadata (version, culture, operating system, and so on), and public key if the assembly is strongly named.

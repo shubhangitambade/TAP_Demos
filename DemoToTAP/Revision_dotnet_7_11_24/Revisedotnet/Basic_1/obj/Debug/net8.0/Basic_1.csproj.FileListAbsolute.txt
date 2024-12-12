@@ -1,0 +1,14 @@
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Revisedotnet\Basic_1\bin\Debug\net8.0\Basic_1.exe
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Revisedotnet\Basic_1\bin\Debug\net8.0\Basic_1.deps.json
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Revisedotnet\Basic_1\bin\Debug\net8.0\Basic_1.runtimeconfig.json
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Revisedotnet\Basic_1\bin\Debug\net8.0\Basic_1.dll
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Revisedotnet\Basic_1\bin\Debug\net8.0\Basic_1.pdb
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Revisedotnet\Basic_1\obj\Debug\net8.0\Basic_1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Revisedotnet\Basic_1\obj\Debug\net8.0\Basic_1.AssemblyInfoInputs.cache
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Revisedotnet\Basic_1\obj\Debug\net8.0\Basic_1.AssemblyInfo.cs
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Revisedotnet\Basic_1\obj\Debug\net8.0\Basic_1.csproj.CoreCompileInputs.cache
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Revisedotnet\Basic_1\obj\Debug\net8.0\Basic_1.dll
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Revisedotnet\Basic_1\obj\Debug\net8.0\refint\Basic_1.dll
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Revisedotnet\Basic_1\obj\Debug\net8.0\Basic_1.pdb
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Revisedotnet\Basic_1\obj\Debug\net8.0\Basic_1.genruntimeconfig.cache
+C:\Dotnet_Shubh\Revision_dotnet_7_11_24\Revisedotnet\Basic_1\obj\Debug\net8.0\ref\Basic_1.dll

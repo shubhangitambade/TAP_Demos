@@ -1,0 +1,139 @@
+CTS (Common Type System) and CLS (Common Language Specification) are parts of .NET CLR. They are responsible for type safety within the code and allow cross-language communication and type safety. CLS is a subset of CTS.
+
+CLS
+CLS stands for Common Language Specification and it is a subset of CTS. It defines a set of rules and restrictions that every language must follow which runs under the .NET framework. The languages which follow these set of rules are said to be CLS Compliant. In simple words, CLS enables cross-language integration or Interoperability.
+
+For Example
+
+if we talk about C# and VB.NET then, in C# every statement must have to end with a semicolon. it is also called a statement Terminator, but in VB.NET each statement should not end with a semicolon(;).
+Explanation of the above Example
+
+So these syntax rules which you have to follow from language to language differ but CLR can understand all the language Syntax because in .NET each language is converted into MSIL code after compilation and the MSIL code is language specification of CLR.
+
+CTS
+
+Common Type System (CTS) describes the datatypes that can be used by managed code. CTS defines how these types are declared, used and managed in the runtime. It facilitates cross-language integration, type safety, and high-performance code execution. The rules defined in CTS can be used to define your own classes and values.
+
+OR we can also understand like,
+
+CTS deals with the data type. So here we have several languages and each and every language has its own data type and one language data type cannot be understandable by other languages but .NET Framework language can understand all the data types.
+C# has an int data type and VB.NET has Integer data type. Hence a variable declared as an int in C# and Integer in VB.NET, finally after compilation, uses the same structure Int32 from CTS.
+
+Note
+
+All the structures and classes available in CTS are common for all .NET Languages and the purpose of these is to support language independence in .NET. Hence it is called CTS.
+--------------------------------------------------------------------------------------------------------------------------
+Positional optional parameters
+
+A parameter wrapped by [ ] is a positional optional parameter. Here is an example:
+
+getHttpUrl(String server, String path, [int port=80]) {
+  // ...
+}
+In the above code, port is optional and has a default value of 80.
+
+You can call getHttpUrl with or without the third parameter.
+
+getHttpUrl('example.com', '/index.html', 8080); // port == 8080
+getHttpUrl('example.com', '/index.html');       // port == 80
+You can specify multiple positional parameters for a function:
+
+getHttpUrl(String server, String path, [int port=80, int numRetries=3]) {
+  // ...
+}
+
+Named optional parameters
+
+A parameter wrapped by { } is a named optional parameter. Here is an example:
+
+getHttpUrl(String server, String path, {int port = 80}) {
+  // ...
+}
+You can call getHttpUrl with or without the third parameter. You must use the parameter name when calling the function.
+
+getHttpUrl('example.com', '/index.html', port: 8080); // port == 8080
+getHttpUrl('example.com', '/index.html');             // port == 80
+You can specify multiple named parameters for a function:
+
+getHttpUrl(String server, String path, {int port = 80, int numRetries = 3}) {
+  // ...
+}
+
+Because named parameters are referenced by name, they can be used in an order different from their declaration.
+
+getHttpUrl('example.com', '/index.html');
+getHttpUrl('example.com', '/index.html', port: 8080);
+getHttpUrl('example.com', '/index.html', port: 8080, numRetries: 5);
+getHttpUrl('example.com', '/index.html', numRetries: 5, port: 8080);
+getHttpUrl('example.com', '/index.html', numRetries: 5);
+
+------
+In Dart with my understanding, method parameter can be given in two type.
+
+Required parameter
+Optional parameter (positional, named & default)
+>> Required Parameter
+
+Required parameter is a well know old style parameter which we all familiar with it
+
+example:
+
+findVolume(int length, int breath, int height) {
+ print('length = $length, breath = $breath, height = $height');
+}
+
+findVolume(10,20,30);
+output:
+
+length = 10, breath = 20, height = 30
+>> Optional Positional Parameter
+
+parameter will be disclosed with square bracket [ ] & square bracketed parameter are optional.
+
+example:
+
+findVolume(int length, int breath, [int height]) {
+ print('length = $length, breath = $breath, height = $height');
+}
+
+findVolume(10,20,30);//valid
+findVolume(10,20);//also valid
+output:
+
+length = 10, breath = 20, height = 30
+length = 10, breath = 20, height = null // no value passed so height is null
+>> Optional Named Parameter
+
+parameter will be disclosed with curly bracket { }
+curly bracketed parameter are optional.
+have to use parameter name to assign a value which separated with colan :
+in curly bracketed parameter order does not matter
+these type parameter help us to avoid confusion while passing value for a function which has many parameter.
+example:
+
+findVolume(int length, int breath, {int height}) {
+ print('length = $length, breath = $breath, height = $height');
+}
+
+findVolume(10,20,height:30);//valid & we can see the parameter name is mentioned here.
+findVolume(10,20);//also valid
+output:
+
+length = 10, breath = 20, height = 30
+length = 10, breath = 20, height = null
+>> Optional Default Parameter
+
+same like optional named parameter in addition we can assign default value for this parameter.
+which means no value is passed this default value will be taken.
+example:
+
+findVolume(int length, int breath, {int height=10}) {
+ print('length = $length, breath = $breath, height = $height');
+} 
+
+findVolume(10,20,height:30);//valid
+findVolume(10,20);//valid 
+output:
+
+length = 10, breath = 20, height = 30
+length = 10, breath = 20, height = 10 // default value 10 is taken

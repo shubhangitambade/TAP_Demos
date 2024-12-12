@@ -1,0 +1,16 @@
+﻿@using ProductContext_MVC_WebApplication.Models;
+
+<div>
+
+    <h1>List of vegetables</h1>
+    <a href="/Vegetables/Add">Add New Vegetable</a>
+
+    @{
+        List<Product> products = (List<Product>)ViewData["veges"];
+
+        foreach(Product prd in products)
+        {
+            <p>@prd.Id . @prd.Title |<a href="/Vegetables/Details/@prd.Id">Details</a>|  <a href="/Vegetables/Edit/@prd.Id">Edit</a> |<a href="/Vegetables/Delete/@prd.Id">Delete</a>    </p>
+        }
+    }
+</div>

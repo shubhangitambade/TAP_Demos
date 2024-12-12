@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\EFCodeFirst_PostComment.props" />
+</Project>

@@ -1,0 +1,363 @@
+Dependency injection (DI) is a software design pattern in .NET Core that helps developers create more maintainable code: 
+Decoupling: DI helps decouple different parts of an application. 
+Inversion of Control (IoC): DI achieves IoC between classes and their dependencies. 
+Loose coupling: DI helps build loosely coupled applications, where one class doesn't depend on another. 
+Reusability: DI allows developers to reuse code blocks by sharing dependencies between classes. 
+Easy testing: DI allows developers to use mock objects for unit testing, which can lead to accurate results. 
+Extensibility: DI makes applications more flexible and scalable. 
+---------------------------------------------------------
+
+Dependency Injection In C#
+Dependency Injection is a key concept in C#'s object-oriented programming. Unlike hard-coding them inside, it allows you to inject dependencies into a class. This allows for a more flexible and modular architecture, making the system easier to understand, test, and maintain.
+
+In this design pattern tutorial, we will discuss Dependency Injection in C#, which comprises what Dependency Injection in C# is. And when should we utilize Dependency Injection? We'll also look into Dependency Injection in C#, with examples. So, let us begin by examining "What is Dependency Injection?".
+----------------------------------------
+What is Dependency Injection in C#?
+Dependency Injection (DI) is a C# design pattern that implements Inversion of Control (IoC) by allowing an object's dependencies to be injected at runtime rather than hard-coded.
+This enhances both modularity and testability. Consider an automobile production system in which the engine is injected into the assembly line rather than the car producing the engine.
+This allows multiple engine types to be utilized alternately without changing the car's class.
+------------------------------------------
+When to use Dependency Injection?
+Dependency Injection improves the flexibility and testability of your code.
+It is especially handy when your classes have shifting dependencies or when you wish to easily swap out components of your system, such as using various data sources or fake objects for testing without affecting your application's main functionality.
+How do you Implement Dependency Injection in C#?
+To set up Dependency Injection in C#, first define interfaces for dependencies and provide concrete implementations. Then, injection is used to pass these dependencies into classes. Finally, a DI container (such as Microsoft Extensions.DependencyInjection) should be set up to handle and resolve these dependencies at runtime.
+---------------------------------------
+Dependency Injection in C# allows for implementation in the following ways:
+Constructor Injection
+Setter Injection
+Method Injection
+1. Constructor Injection
+Constructor injection is a type of dependency injection in which dependencies are passed to a class via its constructor. 
+This method ensures that all necessary dependencies are present and initialized when an object is created, supporting immutability and making the class easier to test and manage.
+The following are the steps for developing Dependency Injection using constructor injection in C#:
+Define Interfaces: Create interfaces for the dependencies that your class needs.
+Implement Interfaces: Provide concrete representations of these interfaces.
+Use Constructor Injection: Inject dependencies into the class constructor.
+Set up DI Container: Configure a DI container, such as Microsoft.Extensions.Dependency Injection manages and resolves dependencies.
+Resolve dependencies: Retrieve instances from the container that have dependencies injected.
+Example
+let's see the example of constructor Injection with C# Compiler
+public interface IService {
+ void Serve();
+}
+public class Service1 : IService {
+ public void Serve() { 
+ Console.WriteLine("Service1 Called"); 
+ }
+}
+public class Service2 : IService {
+ public void Serve() { 
+ Console.WriteLine("Service2 Called"); 
+ }
+}
+public class Client {
+ private IService _service;
+ public Client(IService service) {
+ this._service = service;
+ }
+ public ServeMethod() { 
+ this._service.Serve(); 
+ }
+}
+Program Class
+{
+ static void Main(string[] args)
+ {
+ //creating object
+ Service1 s1 = new Service1(); 
+ //passing dependency
+ Client c1 = new Client(s1);
+ //TO DO:
+ c1.ServeMethod();
+ 
+ Service2 s2 = new Service2(); 
+ //passing dependency
+ c1 = new Client(s2);
+ //TO DO:
+ c1.ServeMethod();
+ }
+}
+Explanation
+In the constructor injection example, each new Client instance is created with a unique IService implementation, which generates output based on the injected service. In the property injection example, a single Client instance is updated with several services, resulting in output based on the current property value.
+Output
+Service1 Called
+Service2 Called
+------------------------------------------------------------------------------------------------------------------------------
+2. Property/Setter Injection
+Property/Setter injection is a sort of dependency injection in which dependencies are passed to a class via public properties or setter methods after the object has been created. 
+This technique provides for optional dependencies and allows you to change them at runtime without having to create new instances, which promotes flexibility and ease of maintenance.
+The steps to construct Dependency Injection utilizing property/setter injection in C# are as follows:
+Define Interfaces: Create interfaces for the dependencies that your class needs.
+Implement Interfaces: Provide actual implementations for these interfaces.
+Use Property/Setter Injection: Incorporate dependencies into the class using public properties or setter methods.
+Set up the DI Container: Configure a DI container, like Microsoft.Extensions.DependencyInjection manages and resolves dependencies.
+Resolve dependencies: Retrieve objects from the container, set their properties, or use setters to inject.
+Example
+using System;
+
+public interface IService {
+    void Serve();
+}
+
+public class Service1 : IService {
+    public void Serve() {
+        Console.WriteLine("Service1 Called");
+    }
+}
+
+public class Service2 : IService {
+    public void Serve() {
+        Console.WriteLine("Service2 Called");
+    }
+}
+
+public class Client {
+    private IService _service;
+
+    public IService Service {
+        set { this._service = value; }
+    }
+
+    public void ServeMethod() {
+        this._service.Serve();
+    }
+}
+
+class Program {
+    static void Main(string[] args) {
+        // Creating object
+        Service1 s1 = new Service1();
+
+        Client client = new Client();
+        client.Service = s1; // Passing dependency
+        client.ServeMethod();
+
+        Service2 s2 = new Service2();
+        client.Service = s2; // Passing dependency
+        client.ServeMethod();
+    }
+}
+Resolve dependencies: Retrieve objects from the container, set their properties, or use setters to inject.
+Explanation
+This code shows property injection by using the Client class's Service property to dynamically inject different IService implementations (Service1 and Service2), allowing the ServeMethod to call the appropriate Serve function based on the injected service.
+Output
+Service1 Called
+Service2 Called
+----------------------------------------------------------------------------------------------------------------------------------------------
+3. Method Injection
+Method injection is a sort of dependency injection in which dependencies are passed to a class via method parameters. 
+This technique allows dependencies to be injected only when necessary, providing flexibility in managing and modifying dependencies without affecting the object's state.
+The steps for implementing Dependency Injection with method injection in C# are as follows:
+Define Interfaces: Create interfaces for the dependencies your class requires.
+Implement Interfaces: Provide concrete implementations for these interfaces.
+Use Method Injection: Inject dependencies into the class using method parameters.
+Set a DI Container: Configure a DI container like Microsoft.Extensions.Dependency injection is used to manage and resolve dependencies as needed.
+Resolve Dependencies: Extract instances from the container and send them as arguments to methods that require these dependencies.
+Example
+
+public interface IService {
+    void Serve();
+}
+
+public class Service1 : IService {
+    public void Serve() { 
+        Console.WriteLine("Service1 Called"); 
+    }
+}
+
+public class Service2 : IService {
+    public void Serve() { 
+        Console.WriteLine("Service2 Called"); 
+    }
+}
+
+public class Client {
+    public void ServeMethod(IService service) {
+        service.Serve();
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Creating object
+        Service1 s1 = new Service1(); 
+        Client client = new Client();
+
+        // Passing dependency
+        client.ServeMethod(s1); // Calls Service1.Serve(), outputs: "Service1 Called"
+
+        Service2 s2 = new Service2(); 
+        client.ServeMethod(s2); // Calls Service2.Serve(), outputs: "Service2 Called"
+    }
+}
+Explanation
+This code shows method injection by having the Client class's ServeMethod directly receive and use different IService implementations (Service1 and Service2) as method parameters, which allows for dynamic dependency management.
+Output
+Service1 Called
+Service2 Called
+
+
+--------------------------------------------------------------------------------------------------------------------
+Advantages of Dependency Injection in C#
+Here are some major benefits of dependency injection in C#:
+Improved Testability: Dependencies can be readily mocked or stubbed, making unit testing more simple and effective.
+Enhanced Flexibility: Enables the injection of multiple implementations at runtime without modifying the client code, resulting in more adaptability.
+
+
+
+Decoupling of Components: Reduces tight coupling between classes, making the software more modular and maintainable.
+Simplified Object generation: Centralizes dependency generation and management, typically employing a DI container to handle complex object graphs and lifecycle management.
+Support for Multiple Configurations: Allows for quick swapping of implementations or configurations by changing DI container settings or constructor arguments.
+DI Container
+A Dependency Injection (DI) container is a framework or library that handles the lifespan and resolution of dependencies within an application. 
+It automates the process of building and injecting dependencies, allowing developers to specify how objects should be built and the dependencies they require. 
+A DI container encourages loose coupling, enhances testability, and simplifies configuration changes by centralizing object generation and dependency resolution, making complicated object graphs easier to manage and a clean, modular codebase to maintain.
+Read More: What is IoC Container or DI Container
+Summary
+Dependency Injection is a design pattern in C# that improves flexibility, testability, and maintainability by injecting dependencies into classes rather than hard-coding them. It offers a variety of injection mechanisms, including constructor, property/setter, and method, to facilitate dynamic dependency management and modular architecture. Also, consider our .NET design patterns training for a better understanding of other design patterns concepts.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+e are not going to fetch the data from the database but rather returning hard coded ones.
+
+using System.Collections.Generic;
+
+namespace DIinCore
+{
+    public class CategoryRepository : ICategoryRepository
+    {
+        public List<Category> GetCategories()
+        {
+            List<Category> categories = new List<Category>();
+
+            Category category = new Category() { CategoryId = 1, CategoryName = "Category1" };
+            categories.Add(category);
+
+            category = new Category() { CategoryId = 2, CategoryName = "Category2" };
+            categories.Add(category);
+
+            return categories;
+        }
+    }
+}
+C#
+Assume that we are not aware of the dependency injection. Then, how will we expose the GET method from API? We used to create an instance of CategoryRepository and call the GetCategories method using that instance. So tomorrow, if there is a change in CategoryRepository, it will directly affect the GET method of API as it is tightly coupled with that.
+
+[HttpGet]
+public async Task<IActionResult> Get()
+{
+    CategoryRepository categoryRepository = new CategoryRepository();
+    List<Category> categories = categoryRepository.GetCategories();
+
+    return Ok(categories);
+}
+C#
+With the .NET Framework, we used to use containers like LightInject, NInject, Unity, etc. But in .NET Core, Microsoft has provided an in-built container. We need to add the namespace, i.e., Microsoft.Extension.DependencyInjection.
+
+So, in the startup class, inside the ConfigureServices method, we need to add our dependency into the service collection, which will dynamically inject whenever and wherever we want in the project. Also, we can mention which kind of instance we want to inject - the lifetime of our instance.
+Transient
+
+It creates an instance each time they are requested and are never shared. It is used mainly for lightweight stateless services.
+
+Singleton
+
+This creates only single instances which are shared among all components that require it.
+
+Scoped
+
+It creates an instance once per scope, which is created on every request to the application.
+
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace DIinCore
+{
+    public class Startup
+    {
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
+
+        public void ConfigureServices(IServiceCollection services)
+        {
+            // Registering a singleton service
+            services.AddSingleton<ICategoryRepository, CategoryRepository>();
+
+            // Other dependency injections can be added here using AddTransient or AddScoped
+            // services.AddTransient<ICategoryRepository, CategoryRepository>();
+            // services.AddScoped<ICategoryRepository, CategoryRepository>();
+
+            services.AddMvc();
+        }
+
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.UseMvc();
+        }
+    }
+}
+C#
+So far, we have added our dependency to the collection. It’s time to inject where we need it, i.e., in the Web API. Our GET method is inside the CategoryController, and we want an instance of categoryrepository. So, let’s create a CategoryController constructor which expects the ICategoryRepository type. From this parameterized constructor, set the private property of type ICategoryRepository, which will be used to call GetCategories from the GET method.
+
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace DIinCore.Controllers
+{
+    [Route("api/Category")]
+    public class CategoryController : Controller
+    {
+        private ICategoryRepository categoryRepository { get; set; }
+
+        public CategoryController(ICategoryRepository categoryRepository)
+        {
+            this.categoryRepository = categoryRepository;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            List<Category> categories = categoryRepository.GetCategories();
+            return Ok(categories);
+        }
+    }
+}
+C#
+Run the application, and we will be able to see the result of the GET method of CategoryController. Now, even though we haven’t created an instance of CategoryRepository, which is expected by CategoryController, we are able to call the GET method successfully. The instance of CategoryRepository has been resolved dynamically, i.e., our Dependency Injection.
+
+Dependency Injection In .NET Core 
+You can download the sample code from the top of this article.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Constructor injection is a type of dependency injection (DI) in C# that has several advantages, including:
+Compile-time safety: Constructor injection ensures that all dependencies are provided when an object is created. 
+Immutability: Objects created with constructor injection remain immutable, which improves thread safety and simplifies state management. 
+Strong dependency contract: Constructor injection establishes a strong dependency contract. 
+Testing: Constructor injection supports testing by ensuring that all dependencies are present and initialized when an object is created. 
+Ease of management: Constructor injection makes classes easier to manage. 
+Dependency injection has many other advantages, including:
+Loose coupling
+Dependency injection removes direct dependencies between classes, making it easier to substitute implementations. 
+Reusability
+Dependency injection promotes code reuse by allowing components to be reused in different contexts. 
+Centralized configuration
+Dependency injection enables the framework to create resources, which centralizes configuration data and reduces the number of places updates need to occur. 
+Customizable resources
+Injected resources can be customized through Extensible Markup Language files outside of the source code. 
+Independent class building
+Developers can build classes independently of each other because they only need to know how to use the interfaces to the referenced classes. 
+know how to use the interfaces to the referenced classes.

@@ -1,0 +1,17 @@
+﻿@using Product_MVC_Project.Models;
+
+@{
+    ViewData["Title"] = "Login Here";
+}
+
+<div>
+    <form method="post" action="/Auth/Login">
+        <label>Enter Email Id : </label>
+        <input type="text" id="email" name="email"/>
+
+        <label>Enter Password : </label>
+        <input type="password" id="password" name="password" />
+
+        <button type="submit">Login</button>
+    </form>
+</div>
